@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1446671344 source:c:\users\pata01\desktop\c++\bsp_30f\main.cpp
+	<iostream>
+
+1496917881 
+
+1496916763 source:c:\users\pata01\desktop\c++\bsp_30f\src\bishop.cpp
+	"Bishop.h"
+
+1496916733 c:\users\pata01\desktop\c++\bsp_30f\include\bishop.h
+	"Piece.h"
+
+1496917924 c:\users\pata01\desktop\c++\bsp_30f\include\piece.h
+	<vector>
+
+1496916487 source:c:\users\pata01\desktop\c++\bsp_30f\src\piece.cpp
+	"Piece.h"
+
+1496917113 source:c:\users\pata01\desktop\c++\bsp_30f\src\board.cpp
+	"Board.h"
+
+1496917881 c:\users\pata01\desktop\c++\bsp_30f\include\board.h
+	"Piece.h"
+	<vector>
+
+1446667744 source:/run/media/scheich/DC4E65AC4E65805E/Users/scheich/Desktop/bsp_30f/main.cpp
+	<iostream>
+
+1496922700 source:/run/media/scheich/DC4E65AC4E65805E/Users/scheich/Desktop/bsp_30f/src/Bishop.cpp
+	"Bishop.h"
+	<cmath>
+
+1496913134 /run/media/scheich/DC4E65AC4E65805E/Users/scheich/Desktop/bsp_30f/include/Bishop.h
+	"Piece.h"
+
+1496922700 /run/media/scheich/DC4E65AC4E65805E/Users/scheich/Desktop/bsp_30f/include/Piece.h
+	<vector>
+	<iostream>
+
