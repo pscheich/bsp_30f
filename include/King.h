@@ -11,7 +11,7 @@ public:
     King();
 
     King(int pos, bool black);
-     King(int pos, bool black, bool unicode);
+    King(int pos, bool black, bool unicode);
     virtual ~King();
     bool moveEnabled(int newPos);
     friend    ostream& operator<<(ostream& s, const King& rhs );

@@ -9,7 +9,7 @@ class Board
 {
 public:
     Board(bool unicode);
- //   Board();
+//   Board();
     virtual ~Board();
     std::vector<std::unique_ptr<Piece>>  const & getBlack() const;
     //  void setBlack(std::vector<std::unique_ptr<Piece>> const &  b) ;
@@ -26,7 +26,7 @@ public:
 protected:
 
 private:
-        std::vector<std::unique_ptr<Piece>> _black;
+    std::vector<std::unique_ptr<Piece>> _black;
     std::vector<std::unique_ptr<Piece>> _white;
 
     bool _unicode;

@@ -13,7 +13,7 @@ public:
     Piece(int x,int y, string sym,bool black);
     Piece(int pos);
     virtual ~Piece();
-   virtual  bool moveEnabled(int newPos)=0;
+    virtual  bool moveEnabled(int newPos)=0;
     int getPosition();
     void setPosition(int posPiece);
     friend ostream& operator<<(ostream& s, const Piece& rhs );

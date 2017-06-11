@@ -45,6 +45,7 @@ void Piece::printOnBoard(std::array<string, 64> &board) const
     board[_position] = _symbol;
 
 }
- string const Piece::getSymbol() const{
- return _symbol;
- }
+string const Piece::getSymbol() const
+{
+    return _symbol;
+}

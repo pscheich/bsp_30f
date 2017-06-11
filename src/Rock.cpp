@@ -24,7 +24,7 @@ bool Rock::moveEnabled(int newPos)
         ret= false;
     else
     {
-       cout << (std::abs(newPos/8-_position/8)>0) << "--" << (std::abs(newPos%8-_position%8) > 0);
+        cout << (std::abs(newPos/8-_position/8)>0) << "--" << (std::abs(newPos%8-_position%8) > 0);
         if(!((std::abs(newPos/8-_position/8)>0)  != (std::abs(newPos%8-_position%8) > 0)) )//Immer nur in eine richtung für den Turm
             ret = false;
     }

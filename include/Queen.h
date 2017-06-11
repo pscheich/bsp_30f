@@ -11,7 +11,7 @@ class Queen : public Piece
 public:
     Queen();
     Queen(int pos, bool black);
-     Queen(int pos, bool black, bool unicode);
+    Queen(int pos, bool black, bool unicode);
     virtual ~Queen();
     bool moveEnabled(int newPos);
 protected:

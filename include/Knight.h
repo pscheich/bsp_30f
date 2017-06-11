@@ -9,7 +9,7 @@ class Knight : public Piece
 public:
     Knight();
     Knight(int pos, bool black);
-     Knight(int pos, bool black, bool unicode);
+    Knight(int pos, bool black, bool unicode);
     virtual ~Knight();
     bool moveEnabled(int newPos);
 protected:

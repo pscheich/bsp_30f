@@ -24,7 +24,7 @@ using namespace std;
 Board::Board(bool unicode):_black(),_white(),_unicode(unicode),_winner(0)
 {
     //ctor
-   // init();
+    // init();
 }
 Board::~Board()
 {
@@ -98,7 +98,8 @@ ostream& operator<<(ostream& s, const Board& rhs )
     return s;
 }
 void Board::init(bool unicode)
-{         std::vector<std::unique_ptr<Piece>>& playersList1 = _black;
+{
+    std::vector<std::unique_ptr<Piece>>& playersList1 = _black;
     _unicode = unicode;
     for(int i =0; i<8; i++)
     {
@@ -146,15 +147,15 @@ void Board::init(bool unicode)
     _white.emplace_back(std::move(q));
     std::unique_ptr<King> k (new King(0*8+4, false,_unicode));
     _white.emplace_back(std::move(k));
-         std::vector<std::unique_ptr<Piece>>& playersList = _black;
+    std::vector<std::unique_ptr<Piece>>& playersList = _black;
 
 }
 
 bool Board::move(int const &  posStart, int const & posEnd,bool const & black)
 {
     bool ret=false;
-      std::vector<std::unique_ptr<Piece>>& playersList1 = (black?_black:_white);
-      std::vector<std::unique_ptr<Piece>>& otherplayersList2 = (black?_white:_black);
+    std::vector<std::unique_ptr<Piece>>& playersList1 = (black?_black:_white);
+    std::vector<std::unique_ptr<Piece>>& otherplayersList2 = (black?_white:_black);
     auto  figure = std::find_if((black?_black:_white).begin(),(black?_black:_white).end(), [&](std::unique_ptr<Piece> & piece)
     {
         return piece->getPosition() == posStart;
@@ -173,11 +174,11 @@ bool Board::move(int const &  posStart, int const & posEnd,bool const & black)
             });
 
             if(figureGeschlagen != (black?_white:_black).end())  //TODO ABfrage ob da schon andere figur von spieler
-                 (black?_white:_black).erase(figureGeschlagen);      //TODO Frage ob schachmatt
+                (black?_white:_black).erase(figureGeschlagen);      //TODO Frage ob schachmatt
             ret=true;
         }
     }
-     std::vector<std::unique_ptr<Piece>>& playersList = _black;
-         std::vector<std::unique_ptr<Piece>>& otherplayersList = _white;
+    std::vector<std::unique_ptr<Piece>>& playersList = _black;
+    std::vector<std::unique_ptr<Piece>>& otherplayersList = _white;
     return ret;
 }

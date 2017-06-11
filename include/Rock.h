@@ -9,7 +9,7 @@ class Rock : public Piece
 public:
     Rock();
     Rock(int pos, bool black);
-     Rock(int pos, bool black, bool unicode);
+    Rock(int pos, bool black, bool unicode);
     virtual ~Rock();
     bool moveEnabled(int newPos);
 protected:
