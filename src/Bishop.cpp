@@ -5,11 +5,11 @@ Bishop::Bishop()
 {
     //ctor
 }
-Bishop::Bishop(int pos, bool black):Piece(pos,black? "B" : "b")
+Bishop::Bishop(int pos, bool black):Piece(pos,black? "B" : "b",black)
 {
     //ctor
 }
-Bishop::Bishop(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265D" : "\u2657":black? "B" : "b")
+Bishop::Bishop(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265D" : "\u2657":black? "B" : "b",black)
 {
     //ctor
 }

@@ -42,6 +42,7 @@
 		<Unit filename="include/Piece.h" />
 		<Unit filename="include/Queen.h" />
 		<Unit filename="include/Rock.h" />
+		<Unit filename="include/Game.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Bishop.cpp" />
 		<Unit filename="src/Board.cpp" />
@@ -51,6 +52,7 @@
 		<Unit filename="src/Piece.cpp" />
 		<Unit filename="src/Queen.cpp" />
 		<Unit filename="src/Rock.cpp" />
+		<Unit filename="src/Game.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

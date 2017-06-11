@@ -5,11 +5,11 @@ Queen::Queen()
 {
     //ctor
 }
-Queen::Queen(int pos, bool black):Piece(pos,black? "Q" : "q")
+Queen::Queen(int pos, bool black):Piece(pos,black? "Q" : "q",black)
 {
     //ctor
 }
-Queen::Queen(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265B" : "\u2655":black? "Q" : "q")
+Queen::Queen(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265B" : "\u2655":black? "Q" : "q",black)
 {
     //ctor
 }

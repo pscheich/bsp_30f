@@ -9,8 +9,8 @@ class Piece
 {
 public:
     Piece();
-    Piece(int pos, string sym);
-    Piece(int x,int y, string sym);
+    Piece(int pos, string sym,bool black);
+    Piece(int x,int y, string sym,bool black);
     Piece(int pos);
     virtual ~Piece();
    virtual  bool moveEnabled(int newPos)=0;
@@ -18,11 +18,12 @@ public:
     void setPosition(int posPiece);
     friend ostream& operator<<(ostream& s, const Piece& rhs );
     void printOnBoard(std::array<string, 64> &board) const;
-
+    string const getSymbol() const;
 protected:
     bool checkInField(int newPos);
     int _position;
     string _symbol;
+    bool _black;
 private:
 
 

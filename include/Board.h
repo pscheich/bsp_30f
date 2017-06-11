@@ -9,25 +9,28 @@ class Board
 {
 public:
     Board(bool unicode);
-    Board();
+ //   Board();
     virtual ~Board();
     std::vector<std::unique_ptr<Piece>>  const & getBlack() const;
     //  void setBlack(std::vector<std::unique_ptr<Piece>> const &  b) ;
     std::vector<std::unique_ptr<Piece>>  const &  getWhite() const;
 //   void setWhite(std::vector<std::unique_ptr<Piece>> const &  w) ;
     friend    ostream& operator<<(ostream& s, const Board& rhs ) ;
-    bool move(int const &  posStart, int const & posEnd, bool black);
+    bool move(int const &  posStart, int const & posEnd, bool const&  black);
+    bool checkIfFigure(int pos, bool black)const;
+    void setUnicode(bool unicode);
 
-    void print();
+    void init(bool unicode =false);
+    int const & getWinner() const;
 
 protected:
 
 private:
-    std::vector<std::unique_ptr<Piece>> _black;
+        std::vector<std::unique_ptr<Piece>> _black;
     std::vector<std::unique_ptr<Piece>> _white;
-    void init();
-    bool _unicode;
 
+    bool _unicode;
+    int _winner;
 };
 
 #endif // BOARD_H

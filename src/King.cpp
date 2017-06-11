@@ -5,10 +5,10 @@ King::King()
 {
     //ctor
 }
-King::King(int pos, bool black):Piece(pos,black? "K" : "k")
+King::King(int pos, bool black):Piece(pos,black? "K" : "k",black)
 {
 }
-King::King(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265A" : "\u2654":black? "K" : "k")
+King::King(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265A" : "\u2654":black? "K" : "k",black)
 {
     //ctor
 }

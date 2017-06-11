@@ -17,7 +17,7 @@ public:
 protected:
 
 private:
-    bool unMoved= 0;
+    bool _unMoved;
 };
 
 #endif // PAWN_H

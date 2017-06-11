@@ -9,7 +9,7 @@ Piece::Piece():_position(),_symbol("")
 Piece::Piece(int pos):_position(pos),_symbol("")
 {
 }
-Piece::Piece(int pos,  string sym):_position(pos),_symbol(sym)
+Piece::Piece(int pos,  string sym,bool black):_position(pos),_symbol(sym)
 {
 }
 
@@ -32,7 +32,7 @@ void Piece::setPosition(int pos)
 //}
 bool Piece::checkInField(int newPos)
 {
-    return newPos/8<=7 && newPos%8<= 7;
+    return newPos<64;
 }
 //ostream& operator<<(ostream& s, const Piece& rhs )
 //{
@@ -43,4 +43,8 @@ void Piece::printOnBoard(std::array<string, 64> &board) const
 {
 //    cout << "---" << _position << "---" <<endl;
     board[_position] = _symbol;
+
 }
+ string const Piece::getSymbol() const{
+ return _symbol;
+ }
