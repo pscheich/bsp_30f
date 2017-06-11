@@ -1,24 +1,33 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include "Piece.h"
+#include <memory>
 #include <vector>
 
 using namespace std;
 class Board
 {
 public:
+    Board(bool unicode);
     Board();
     virtual ~Board();
-    vector<Piece> getBlack();
-    void setBlack(vector<Piece>);
-    vector<Piece> getWhite();
-    void setWhite(vector<Piece>);
-friend    ostream& operator<<(ostream& s , const Board& rhs ) ;
+    std::vector<std::unique_ptr<Piece>>  const & getBlack() const;
+    //  void setBlack(std::vector<std::unique_ptr<Piece>> const &  b) ;
+    std::vector<std::unique_ptr<Piece>>  const &  getWhite() const;
+//   void setWhite(std::vector<std::unique_ptr<Piece>> const &  w) ;
+    friend    ostream& operator<<(ostream& s, const Board& rhs ) ;
+    bool move(int const &  posStart, int const & posEnd, bool black);
+
+    void print();
+
 protected:
 
 private:
-    vector<Piece> _black;
-    vector<Piece> _white;
+    std::vector<std::unique_ptr<Piece>> _black;
+    std::vector<std::unique_ptr<Piece>> _white;
+    void init();
+    bool _unicode;
+
 };
 
 #endif // BOARD_H

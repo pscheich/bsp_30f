@@ -8,18 +8,19 @@
 #include "Pawn.h"
 #include "Piece.h"
 
+
 using namespace std;
 
 int main()
 {
     Board game;
-    vector<Piece> blacks(16);
-    King k;
-    vector<int> pos(3,3);
-    k.setPosition(pos);
+    game.print();
+    Board gameUnicode(true);
+    gameUnicode.print();
+   game.move(7,55,false);
+   game.move(3,15,false);
+    game.print();
+//std::wcout << "♔";
 
-    blacks.at(0)=k;
-    game.setBlack(blacks);
-    cout << game << endl;
     return 0;
 }

@@ -1,15 +1,17 @@
 #ifndef ROCK_H
 #define ROCK_H
-
 #include "Piece.h"
+#include <vector>
 
-class Rock : Piece
+using namespace std;
+class Rock : public Piece
 {
 public:
     Rock();
-    Rock(int x, int y);
+    Rock(int pos, bool black);
+     Rock(int pos, bool black, bool unicode);
     virtual ~Rock();
-    bool moveEnabled(vector<int> newPos);
+    bool moveEnabled(int newPos);
 protected:
 
 private:

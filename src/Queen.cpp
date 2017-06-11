@@ -5,12 +5,19 @@ Queen::Queen()
 {
     //ctor
 }
-
+Queen::Queen(int pos, bool black):Piece(pos,black? "Q" : "q")
+{
+    //ctor
+}
+Queen::Queen(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265B" : "\u2655":black? "Q" : "q")
+{
+    //ctor
+}
 Queen::~Queen()
 {
     //dtor
 }
-bool Queen::moveEnabled(vector<int> newPos)
+bool Queen::moveEnabled(int newPos)
 {
 
     bool ret= true;
@@ -18,12 +25,9 @@ bool Queen::moveEnabled(vector<int> newPos)
         ret= false;
     else
     {
-        if(!(((std::abs(newPos.at(0)-_position.at(0)))==1)||((std::abs(newPos.at(1)-_position.at(1))) == 1))) //Immer nur ein Schritt für den König
+        if(!(((std::abs(newPos/8-_position/8))==1)||((std::abs(newPos%8-_position%8)) == 1))) //Immer nur ein Schritt für den König
             ret = false;
     }
     return ret;
 }
-ostream& Queen::operator<<(ostream& s , const Piece& rhs ){
-s << "Q"
-return s;
-}
+

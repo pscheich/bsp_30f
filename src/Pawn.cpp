@@ -3,14 +3,20 @@
 using namespace std;
 Pawn::Pawn()
 {
+    //ctor2659
+}
+Pawn::Pawn(int pos, bool black):Piece(pos,black? "P" : "p")
+{
+}
+Pawn::Pawn(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265F" : "\u2659":black? "P" : "p")
+{
     //ctor
 }
-
 Pawn::~Pawn()
 {
     //dtor
 }
-bool Pawn::moveEnabled(vector<int> newPos)
+bool Pawn::moveEnabled(int newPos)
 {
     bool ret= true;
     if(!checkInField(newPos))
@@ -19,20 +25,17 @@ bool Pawn::moveEnabled(vector<int> newPos)
     {
         if(unMoved)
         {
-            if(!((std::abs(newPos.at(0)-_position.at(0))==0)
-                    && ((std::abs(newPos.at(1)-_position.at(1)) == 1) !=(std::abs(newPos.at(1)-_position.at(1)) == 2) ))) //Zweischritte Bauer
-                    ret = false;
+            if(!((std::abs(newPos/8-_position/8)==0)
+                    && ((std::abs(newPos%8-_position%8) == 1) !=(std::abs(newPos%8-_position%8) == 2) ))) //Zweischritte Bauer
+                ret = false;
         }
-    else
-    {
-        if(!(std::abs(newPos.at(0)-_position.at(0))==0  && std::abs(newPos.at(1)-_position.at(1)) == 1)) //Ein schritt bauer
+        else
+        {
+            if(!(std::abs(newPos/8-_position/8)==0  && std::abs(newPos%8-_position%8) == 1)) //Ein schritt bauer
                 ret = false;
         }
 
     }
     return ret;
 }
-ostream& Pawn::operator<<(ostream& s , const Piece& rhs ){
-s << "P"
-return s;
-}
+

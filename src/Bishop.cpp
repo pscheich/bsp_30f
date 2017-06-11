@@ -5,12 +5,19 @@ Bishop::Bishop()
 {
     //ctor
 }
-
+Bishop::Bishop(int pos, bool black):Piece(pos,black? "B" : "b")
+{
+    //ctor
+}
+Bishop::Bishop(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265D" : "\u2657":black? "B" : "b")
+{
+    //ctor
+}
 Bishop::~Bishop()
 {
     //dtor
 }
-bool Bishop::moveEnabled(vector<int> newPos)
+bool Bishop::moveEnabled(int newPos)
 {
     bool ret= true;
     if(!checkInField(newPos))
@@ -19,16 +26,13 @@ bool Bishop::moveEnabled(vector<int> newPos)
     {
         if(!
                 (
-                    ((std::abs(newPos.at(0)-_position.at(0))>0)  == (std::abs(newPos.at(1)-_position.at(1)) > 0))
+                    ((std::abs(newPos/8-_position/8)>0)  == (std::abs(newPos%8-_position%8) > 0))
                     !=
-                    (  (abs(newPos.at(0)-_position.at(0))>0)  != (abs(newPos.at(1)-_position.at(1)) > 0))
+                    (  (abs(newPos/8-_position/8)>0)  != (abs(newPos%8-_position%8) > 0))
                 )
           ) //Immer nur ein Schritt für die Dame
             ret = false;
     }
     return ret;
 }
-ostream& operator<<(ostream& s , const Piece& rhs ){
-s << "B";
-return s;
-}
+

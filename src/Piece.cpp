@@ -1,11 +1,15 @@
 #include "Piece.h"
+#include <vector>
+#include <array>
 using namespace std;
-Piece::Piece():_position()
+Piece::Piece():_position(),_symbol("")
 {
     //ctor
 }
-
-Piece::Piece(vector<int> pos):_position(pos)
+Piece::Piece(int pos):_position(pos),_symbol("")
+{
+}
+Piece::Piece(int pos,  string sym):_position(pos),_symbol(sym)
 {
 }
 
@@ -14,23 +18,29 @@ Piece::~Piece()
     //dtor
 }
 
-vector<int> Piece::getPosition()
+int Piece::getPosition()
 {
     return _position;
 }
-void Piece::setPosition(vector<int> pos)
+void Piece::setPosition(int pos)
 {
     _position = pos;
 }
-//bool Piece::moveEnabled(vector<int> newPos)
+//bool Piece::moveEnabled(int[] newPos)
 //{
 //    return false;
 //}
-bool Piece::checkInField(vector<int> newPos)
+bool Piece::checkInField(int newPos)
 {
-    return newPos.at(0)<=7 && newPos.at(1)<= 7;
+    return newPos/8<=7 && newPos%8<= 7;
 }
-ostream& Piece::operator<<(ostream& s , const Piece& rhs ){
-s << " "
-return s;
+//ostream& operator<<(ostream& s, const Piece& rhs )
+//{
+//    s << rhs._symbol;
+//    return s;
+//}
+void Piece::printOnBoard(std::array<string, 64> &board) const
+{
+//    cout << "---" << _position << "---" <<endl;
+    board[_position] = _symbol;
 }

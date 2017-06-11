@@ -2,13 +2,18 @@
 #define QUEEN_H
 
 #include "Piece.h"
+#include <vector>
 
-class Queen : Piece
+using namespace std;
+
+class Queen : public Piece
 {
 public:
     Queen();
+    Queen(int pos, bool black);
+     Queen(int pos, bool black, bool unicode);
     virtual ~Queen();
-    bool moveEnabled(vector<int> newPos);
+    bool moveEnabled(int newPos);
 protected:
 
 private:

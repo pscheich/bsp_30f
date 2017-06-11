@@ -1,14 +1,17 @@
 #ifndef KNIGHT_H
 #define KNIGHT_H
-
 #include "Piece.h"
+#include <vector>
 
-class Knight : Piece
+using namespace std;
+class Knight : public Piece
 {
 public:
     Knight();
+    Knight(int pos, bool black);
+     Knight(int pos, bool black, bool unicode);
     virtual ~Knight();
-    bool moveEnabled(vector<int> newPos);
+    bool moveEnabled(int newPos);
 protected:
 
 private:

@@ -1,17 +1,21 @@
 #ifndef BISHOP_H
 #define BISHOP_H
-
 #include "Piece.h"
+#include <vector>
 
-class Bishop : Piece
+using namespace std;
+
+class Bishop : public Piece
 {
-    public:
-        Bishop();
-        virtual ~Bishop();
-    bool moveEnabled(vector<int> newPos);
-    protected:
+public:
+    Bishop();
+    Bishop(int pos, bool black);
+    Bishop(int pos, bool black, bool unicode);
+    virtual ~Bishop();
+    bool moveEnabled(int newPos);
+protected:
 
-    private:
+private:
 };
 
 #endif // BISHOP_H

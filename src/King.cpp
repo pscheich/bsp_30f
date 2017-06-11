@@ -5,26 +5,32 @@ King::King()
 {
     //ctor
 }
-
-
+King::King(int pos, bool black):Piece(pos,black? "K" : "k")
+{
+}
+King::King(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265A" : "\u2654":black? "K" : "k")
+{
+    //ctor
+}
 King::~King()
 {
     //dtor
 }
 
-bool King::moveEnabled(vector<int> newPos)
+bool King::moveEnabled(int newPos)
 {
     bool ret= true;
     if(!checkInField(newPos))
         ret= false;
     else
     {
-        if(!((std::abs(newPos.at(0)-_position.at(0))==1)  || (std::abs(newPos.at(1)-_position.at(1)) == 1))) //Immer nur ein Schritt für den König
+        if(!((std::abs(newPos/8-_position/8)==1)  && (std::abs(newPos%8-_position%8) == 1)))// diagonal//Immer nur ein Schritt für den König
+            ret = false;
+        else if(!((std::abs(newPos/8-_position/8)==0)  && (std::abs(newPos%8-_position%8) == 1)))// vor zuruck //Immer nur ein Schritt für den König
+            ret = false;
+        else if(!((std::abs(newPos/8-_position/8)==1)  && (std::abs(newPos%8-_position%8) == 0)))// links rechts //Immer nur ein Schritt für den König
             ret = false;
     }
     return ret;
 }
-ostream& King::operator<<(ostream& s , const Piece& rhs ){
-s << "K"
-return s;
-}
+

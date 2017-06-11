@@ -2,14 +2,19 @@
 #define KING_H
 
 #include "Piece.h"
+#include <vector>
 
-class King : Piece
+using namespace std;
+class King : public  Piece
 {
 public:
     King();
+
+    King(int pos, bool black);
+     King(int pos, bool black, bool unicode);
     virtual ~King();
-    bool moveEnabled(vector<int> newPos);
-friend    ostream& operator<<(ostream& s , const King& rhs );
+    bool moveEnabled(int newPos);
+    friend    ostream& operator<<(ostream& s, const King& rhs );
 protected:
 
 private:
