@@ -53,13 +53,7 @@ int const & Board::getWinner() const
 
 ostream& operator<<(ostream& s, const Board& rhs )
 {
-#ifdef __linux__
-    system("clear");
-#elif _WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
+
 
     array<string, 64> printedBoard;
     fill(begin(printedBoard), end(printedBoard), rhs._unicode?"\u25A1":".");
@@ -122,7 +116,10 @@ void Board::init(bool unicode)
     _black.emplace_back(std::move(B2));
     std::unique_ptr<Queen> Q (new Queen(7*8+3, true,_unicode));
     _black.emplace_back(std::move(Q));
-    std::unique_ptr<King> K (new King(7*8+4, true,_unicode));
+  //  std::unique_ptr<King> K (new King(7*8+4, true,_unicode));
+        std::unique_ptr<King> K (new King(5*8+4, true,_unicode));
+
+
     _black.emplace_back(std::move(K));
     for(int i =0; i<8; i++)
     {
@@ -145,7 +142,8 @@ void Board::init(bool unicode)
     _white.emplace_back(std::move(b2));
     std::unique_ptr<Queen> q (new Queen(0*8+3, false,_unicode));
     _white.emplace_back(std::move(q));
-    std::unique_ptr<King> k (new King(0*8+4, false,_unicode));
+  //  std::unique_ptr<King> k (new King(0*8+4, false,_unicode));
+     std::unique_ptr<King> k (new King(4*8+4, false,_unicode));
     _white.emplace_back(std::move(k));
     std::vector<std::unique_ptr<Piece>>& playersList = _black;
 

@@ -24,13 +24,7 @@ bool Bishop::moveEnabled(int newPos)
         ret= false;
     else
     {
-        if(!
-                (
-                    ((std::abs(newPos/8-_position/8)>0)  == (std::abs(newPos%8-_position%8) > 0))
-                    !=
-                    (  (abs(newPos/8-_position/8)>0)  != (abs(newPos%8-_position%8) > 0))
-                )
-          ) //Immer nur ein Schritt für die Dame
+            if(!((std::abs(newPos/8-_position/8))==(std::abs(newPos%8-_position%8))))
             ret = false;
     }
     return ret;

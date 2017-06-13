@@ -95,12 +95,16 @@ void Game::play()
         endPos=inputEndX+inputEndY*8 ;
 
         cout << startPos << " +++ " << endPos << endl;
+        clearOutput();
+        if(_board.move(startPos,endPos,!_player1turn))
+        {
+            _player1turn=!_player1turn;
 
-        if(_board.move(startPos,endPos,!_player1turn)) _player1turn=!_player1turn;
+        }
         else
         {
             cout << "Invalid movement. Please try it again." << endl;
-            break;
+
         }
     }
 
@@ -109,4 +113,14 @@ ostream& operator<<(ostream& s, const Game& rhs )
 {
     s<<rhs._board;
     return s;
+}
+void Game::clearOutput()
+{
+#ifdef __linux__
+    system("clear");
+#elif _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
 }

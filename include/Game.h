@@ -20,6 +20,7 @@ private:
     Board _board;
     bool _player1turn;
     void _init();
+    void clearOutput();
 
 };
 

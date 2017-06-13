@@ -25,7 +25,9 @@ bool Queen::moveEnabled(int newPos)
         ret= false;
     else
     {
-        if(!(((std::abs(newPos/8-_position/8))==1)||((std::abs(newPos%8-_position%8)) == 1))) //Immer nur ein Schritt für den König
+        if(!(((std::abs(newPos/8-_position/8))  == (std::abs(newPos%8-_position%8) )) //diagonal
+                !=
+                (  (abs(newPos/8-_position/8)>0)  != (abs(newPos%8-_position%8) > 0)))) // gerade
             ret = false;
     }
     return ret;

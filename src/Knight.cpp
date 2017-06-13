@@ -24,8 +24,11 @@ bool Knight::moveEnabled(int newPos)
         ret= false;
     else
     {
-        if(!(((abs(newPos/8-_position/8))==1 ) ||( abs(newPos%8-_position%8) == 1)) )//TODO Sprung Pferd
-
+        if(!(
+             (((abs(newPos/8-_position/8))==1 ) &&( abs(newPos%8-_position%8) == 2))
+             !=
+             (((abs(newPos/8-_position/8))==2) &&( abs(newPos%8-_position%8) == 1))
+             ))
             ret = false;
     }
     return ret;
