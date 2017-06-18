@@ -14,6 +14,7 @@ public:
     Queen(int pos, bool black, bool unicode);
     virtual ~Queen();
     bool moveEnabled(int newPos);
+    vector<int> getStepsBetween(int newPos) ;
 protected:
 
 private:

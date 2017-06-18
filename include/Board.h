@@ -21,6 +21,7 @@ public:
     void setUnicode(bool unicode);
 
     void init(bool unicode =false);
+    void initTest(bool unicode =false);
     int const & getWinner() const;
 
 protected:
@@ -28,9 +29,12 @@ protected:
 private:
     std::vector<std::unique_ptr<Piece>> _black;
     std::vector<std::unique_ptr<Piece>> _white;
+    bool CheckFreeWay(int const &  posStart, int const & posEnd,bool const & black);
 
+    bool checkIfOwnPiece( int const & posEnd,bool const & black);
     bool _unicode;
     int _winner;
+    void pawnPromotion(std::vector<std::unique_ptr<Piece>>::iterator & figure,bool black);
 };
 
 #endif // BOARD_H

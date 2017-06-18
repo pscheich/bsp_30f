@@ -15,10 +15,12 @@ public:
     virtual ~Piece();
     virtual  bool moveEnabled(int newPos)=0;
     int getPosition();
-    void setPosition(int posPiece);
+    virtual void setPosition(int posPiece);
     friend ostream& operator<<(ostream& s, const Piece& rhs );
     void printOnBoard(std::array<string, 64> &board) const;
     string const getSymbol() const;
+    virtual vector<int> getStepsBetween(int newPos) =0;
+    virtual  bool promotionPossible() const;
 protected:
     bool checkInField(int newPos);
     int _position;

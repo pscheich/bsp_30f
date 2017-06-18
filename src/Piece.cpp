@@ -2,14 +2,14 @@
 #include <vector>
 #include <array>
 using namespace std;
-Piece::Piece():_position(),_symbol("")
+Piece::Piece():_position(),_symbol(""),_black(false)
 {
     //ctor
 }
-Piece::Piece(int pos):_position(pos),_symbol("")
-{
-}
-Piece::Piece(int pos,  string sym,bool black):_position(pos),_symbol(sym)
+//Piece::Piece(int pos):_position(pos),_symbol("")
+//{
+//}
+Piece::Piece(int pos,  string sym,bool black):_position(pos),_symbol(sym),_black(black)
 {
 }
 
@@ -48,4 +48,8 @@ void Piece::printOnBoard(std::array<string, 64> &board) const
 string const Piece::getSymbol() const
 {
     return _symbol;
+}
+  bool Piece::promotionPossible() const
+{
+    return false;
 }

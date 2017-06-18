@@ -1,7 +1,7 @@
 #include "Pawn.h"
 #include <cmath>
 using namespace std;
-Pawn::Pawn()
+Pawn::Pawn():_unMoved(true)
 {
     //ctor2659
 }
@@ -18,31 +18,20 @@ Pawn::~Pawn()
 }
 bool Pawn::moveEnabled(int newPos)
 {
-    bool blackt=_black;
-    int newPosCalc = newPos;
-    int posCalc=_position;
-
-
     bool ret= true;
 
     if(!checkInField(newPos))
         ret= false;
     else
     {
-        if(_black && ((newPos%8-_position%8)>0 ))  //tests ob rückwärtslaufen
+        if(_black != !((newPos/8-_position/8)>0 ))  //tests ob rückwärtslaufen
         {
-            return false;
+            ret= false;
 
         }
-        else if(!_black && ((newPos%8-_position%8)<0 ))//tests ob rückwärtslaufen
-        {
-            return false;
 
-        }
         else if(_unMoved)       //unbewegt für 2er schritt
         {
-            int i1 =std::abs(newPos%8-_position%8);
-            int i2 =std::abs(newPos/8-_position/8);
 
             if(!((std::abs(newPos%8-_position%8)==0)
                     && ((std::abs(newPos/8-_position/8) == 1) || (std::abs(newPos/8-_position/8) == 2) ))) //Zweischritte Bauer
@@ -58,3 +47,26 @@ bool Pawn::moveEnabled(int newPos)
     return ret;
 }
 
+vector<int> Pawn::getStepsBetween(int newPos)
+{
+    vector<int> ret = {-1};
+
+    if(std::abs(newPos/8-_position/8) == 2)  //Zweischritte Bauer
+        ret = {_black?_position-8:_position+8};
+    return ret;
+}
+
+void Pawn::setPosition(int pos)
+{
+    _unMoved = false;
+    _position = pos;
+}
+ bool Pawn::promotionPossible() const
+{
+    bool ret;
+    if(_black && _position/8==0)
+        ret = true;
+    else if (!_black && _position/8==7)
+        ret = true;
+    return ret;
+}

@@ -25,12 +25,17 @@ bool Knight::moveEnabled(int newPos)
     else
     {
         if(!(
-             (((abs(newPos/8-_position/8))==1 ) &&( abs(newPos%8-_position%8) == 2))
-             !=
-             (((abs(newPos/8-_position/8))==2) &&( abs(newPos%8-_position%8) == 1))
-             ))
+                    (((abs(newPos/8-_position/8))==1 ) &&( abs(newPos%8-_position%8) == 2))
+                    !=
+                    (((abs(newPos/8-_position/8))==2) &&( abs(newPos%8-_position%8) == 1))
+                ))
             ret = false;
     }
     return ret;
 }
-
+vector<int> Knight::getStepsBetween(int newPos)
+{
+    newPos++; //damit warnung verschwindet
+    vector<int> ret = {-1};
+    return ret;
+}

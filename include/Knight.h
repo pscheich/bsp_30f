@@ -12,6 +12,7 @@ public:
     Knight(int pos, bool black, bool unicode);
     virtual ~Knight();
     bool moveEnabled(int newPos);
+    vector<int> getStepsBetween(int newPos) ;
 protected:
 
 private:

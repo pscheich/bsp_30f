@@ -24,10 +24,38 @@ bool Rock::moveEnabled(int newPos)
         ret= false;
     else
     {
-       // cout << (std::abs(newPos/8-_position/8)>0) << "--" << (std::abs(newPos%8-_position%8) > 0);
+        // cout << (std::abs(newPos/8-_position/8)>0) << "--" << (std::abs(newPos%8-_position%8) > 0);
         if(!((std::abs(newPos/8-_position/8)>0)  != (std::abs(newPos%8-_position%8) > 0)) )//Immer nur in eine richtung für den Turm
             ret = false;
     }
+    return ret;
+}
+
+vector<int> Rock::getStepsBetween(int newPos)
+{
+    vector<int> ret;
+    ret = {-1};
+    int p1 = _position>newPos?newPos:_position;
+    int p2 = _position<newPos?newPos:_position;
+    bool vertical=(_position/8 - newPos/8)!=0;
+    if (vertical)
+    {
+        ret.clear();
+        for (int i =p1+8; i<=p2-8; i+=8)
+        {
+            ret.push_back(i);
+        }
+    }
+    else
+    {
+        ret.clear();
+        for (int i =p1+1; i<=p2-1; i+=1)
+        {
+            ret.push_back(i);
+        }
+    }
+
+
     return ret;
 }
 

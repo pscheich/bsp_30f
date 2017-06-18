@@ -20,18 +20,20 @@ King::~King()
 bool King::moveEnabled(int newPos)
 {
     bool ret= false;
-    if(checkInField(newPos)){
-//        ret= false;
-//    else
-//    {
-        int temp1 = (std::abs(newPos/8-_position/8));
-        int temp2 = (std::abs(newPos%8-_position%8));
+    if(checkInField(newPos))
+    {
         if((std::abs(newPos/8-_position/8)==1)  && (std::abs(newPos%8-_position%8) == 1))// diagonal//Immer nur ein Schritt für den König
             ret = true;
         else if((std::abs(newPos/8-_position/8)==0)  && (std::abs(newPos%8-_position%8) == 1))// vor zuruck //Immer nur ein Schritt für den König
             ret = true;
         else if((std::abs(newPos/8-_position/8)==1)  && (std::abs(newPos%8-_position%8) == 0))// links rechts //Immer nur ein Schritt für den König
-            ret = true;   }
+            ret = true;
+    }
     return ret;
 }
-
+vector<int> King::getStepsBetween(int newPos)
+{
+    newPos++; //damit warnung verschwindet
+    vector<int> ret = {-1};
+    return ret;
+}

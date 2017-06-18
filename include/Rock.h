@@ -12,6 +12,7 @@ public:
     Rock(int pos, bool black, bool unicode);
     virtual ~Rock();
     bool moveEnabled(int newPos);
+    vector<int> getStepsBetween(int newPos) ;
 protected:
 
 private:

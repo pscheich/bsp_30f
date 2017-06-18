@@ -14,7 +14,8 @@ public:
     King(int pos, bool black, bool unicode);
     virtual ~King();
     bool moveEnabled(int newPos);
-    friend    ostream& operator<<(ostream& s, const King& rhs );
+ //   friend    ostream& operator<<(ostream& s, const King& rhs );
+    vector<int> getStepsBetween(int newPos) ;
 protected:
 
 private:

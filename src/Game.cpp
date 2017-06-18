@@ -23,7 +23,7 @@ void Game::_init()
     cin >> unicode;
     bool unicodebool=false;
     if(unicode=="Y" || unicode=="y" ) unicodebool=true;
-    _board.init(unicodebool);
+    _board.initTest(unicodebool);
     string np1;
     cout << "Choose a name for Player1 (white). Choose wisely, as it can't be changed later."<<endl;
     cin >> np1;
@@ -38,7 +38,6 @@ void Game::_init()
 
 void Game::play()
 {
-    std::vector<std::unique_ptr<Piece>> const & playersList = _board.getBlack();
 
     while(_board.getWinner()==0)
     {
