@@ -31,6 +31,20 @@ bool King::moveEnabled(int newPos)
     }
     return ret;
 }
+bool King::captureKing(int newPos)
+{
+    bool ret= false;
+    if(checkInField(newPos))
+    {
+        if((std::abs(newPos/8-_position/8)==1)  && (std::abs(newPos%8-_position%8) == 1))// diagonal//Immer nur ein Schritt für den König
+            ret = true;
+        else if((std::abs(newPos/8-_position/8)==0)  && (std::abs(newPos%8-_position%8) == 1))// vor zuruck //Immer nur ein Schritt für den König
+            ret = true;
+        else if((std::abs(newPos/8-_position/8)==1)  && (std::abs(newPos%8-_position%8) == 0))// links rechts //Immer nur ein Schritt für den König
+            ret = true;
+    }
+    return ret;
+}
 vector<int> King::getStepsBetween(int newPos)
 {
     newPos++; //damit warnung verschwindet

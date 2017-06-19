@@ -46,6 +46,10 @@ string const Piece::getSymbol() const
 {
     return _symbol;
 }
+bool  Piece::getBlack() const
+{
+    return _black;
+}
 bool Piece::promotionPossible() const
 {
     return false;

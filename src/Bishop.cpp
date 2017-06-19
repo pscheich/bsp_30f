@@ -29,7 +29,18 @@ bool Bishop::moveEnabled(int newPos)
     }
     return ret;
 }
-
+bool Bishop::captureKing(int newPos)
+{
+    bool ret= true;
+    if(!checkInField(newPos))
+        ret= false;
+    else
+    {
+        if(!((std::abs(newPos/8-_position/8))==(std::abs(newPos%8-_position%8))))
+            ret = false;
+    }
+    return ret;
+}
 vector<int> Bishop::getStepsBetween(int newPos)
 {
     vector<int> ret;

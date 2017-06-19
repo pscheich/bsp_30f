@@ -13,6 +13,7 @@ public:
     Bishop(int pos, bool black, bool unicode);
     virtual ~Bishop();
     bool moveEnabled(int newPos);
+    bool captureKing(int newPos);
     vector<int> getStepsBetween(int newPos) ;
 protected:
 

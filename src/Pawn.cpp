@@ -46,7 +46,29 @@ bool Pawn::moveEnabled(int newPos)
     }
     return ret;
 }
+bool Pawn::captureKing(int newPos)
+{
+    bool ret= true;
 
+    if(!checkInField(newPos))
+        ret= false;
+    else
+    {
+        if(_black != !((newPos/8-_position/8)>0 ))  //tests ob rückwärtslaufen
+        {
+            ret= false;
+
+        }
+
+        else
+        {
+            if(!(std::abs(newPos%8-_position%8)==1  && std::abs(newPos/8-_position/8) == 1)) //Ein schritt bauer
+                ret = false;
+        }
+
+    }
+    return ret;
+}
 vector<int> Pawn::getStepsBetween(int newPos)
 {
     vector<int> ret = {-1};

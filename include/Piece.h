@@ -14,7 +14,9 @@ public:
     Piece(int pos);
     virtual ~Piece();
     virtual  bool moveEnabled(int newPos)=0;
+    virtual  bool captureKing(int newPos)=0;
     int getPosition();
+     bool  getBlack() const;
     void setPosition(int newPos);
     friend ostream& operator<<(ostream& s, const Piece& rhs );
     void printOnBoard(std::array<string, 64> &board) const;

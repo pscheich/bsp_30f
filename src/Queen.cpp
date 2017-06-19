@@ -32,6 +32,10 @@ bool Queen::moveEnabled(int newPos)
     }
     return ret;
 }
+bool Queen::captureKing(int newPos)
+{
+return false;
+}
 vector<int> Queen::getStepsBetween(int newPos) //todo
 {
     newPos++; //damit warnung verschwindet

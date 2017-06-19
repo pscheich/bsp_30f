@@ -30,7 +30,19 @@ bool Rock::moveEnabled(int newPos)
     }
     return ret;
 }
-
+bool Rock::captureKing(int newPos)
+{
+    bool ret= true;
+    if(!checkInField(newPos))
+        ret= false;
+    else
+    {
+        // cout << (std::abs(newPos/8-_position/8)>0) << "--" << (std::abs(newPos%8-_position%8) > 0);
+        if(!((std::abs(newPos/8-_position/8)>0)  != (std::abs(newPos%8-_position%8) > 0)) )//Immer nur in eine richtung für den Turm
+            ret = false;
+    }
+    return ret;
+}
 vector<int> Rock::getStepsBetween(int newPos)
 {
     vector<int> ret;

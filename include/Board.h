@@ -29,14 +29,17 @@ protected:
 private:
     std::vector<std::unique_ptr<Piece>> _black;
     std::vector<std::unique_ptr<Piece>> _white;
-    bool CheckFreeWay(int const &  posStart, int const & posEnd,bool const & black);
+    bool CheckFreeWay(std::unique_ptr<Piece>& figure, const int& posEnd);
     void rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool& black, bool & ret, const int & posStart, const int & posEnd);
-    bool checkIfFree(int const & pos);
+    void enPassant(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool& black, bool & ret, const int & posStart, const int & posEnd);
+    bool kingIsSafeRochade(const bool & black, const vector<int>& fields);
+    bool checkIfFree(vector<int> const & pos);
     bool checkIfOwnPiece( int const & posEnd,bool const & black);
     bool _unicode;
     int _winner; //0 , 1schwarz,2weis,3remis
     void pawnPromotion(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool & black);
     int _remiscounter50;
+    int _lastwasdouble;
 };
 
 #endif // BOARD_H

@@ -15,7 +15,7 @@ public:
     Pawn(int pos, bool black, bool unicode);
     virtual ~Pawn();
     bool moveEnabled(int newPos);
-
+    bool captureKing(int newPos);
     vector<int> getStepsBetween(int newPos) ;
     bool promotionPossible() const;
     bool unmoved() const;
