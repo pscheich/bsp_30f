@@ -1,14 +1,14 @@
 #include "Pawn.h"
 #include <cmath>
 using namespace std;
-Pawn::Pawn():_unMoved(true)
+Pawn::Pawn()
 {
     //ctor2659
 }
 //Pawn::Pawn(int pos, bool black):Piece(pos,black? "P" : "p",black),_unMoved(true)
 //{
 //}
-Pawn::Pawn(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265F" : "\u2659":black? "P" : "p",black),_unMoved(true)
+Pawn::Pawn(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265F" : "\u2659":black? "P" : "p",black)
 {
     //ctor
 }
@@ -56,11 +56,6 @@ vector<int> Pawn::getStepsBetween(int newPos)
     return ret;
 }
 
-void Pawn::setPosition(int pos)
-{
-    _unMoved = false;
-    _position = pos;
-}
  bool Pawn::promotionPossible() const
 {
     bool ret;

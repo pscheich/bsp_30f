@@ -17,13 +17,19 @@ Game::~Game()
 }
 void Game::_init()
 {
-
+    string test;
+    cout << "Using the Test-Board [Y/n]"<<endl;
+    cin >> test;
+    bool testbool=true;
+    if(test=="N" || test=="n" ) testbool=false;
+    //  testbool?_board.initTest():_board.init();
     string unicode;
     cout << "Using Unicode Characters [Y/n]"<<endl;
     cin >> unicode;
-    bool unicodebool=false;
-    if(unicode=="Y" || unicode=="y" ) unicodebool=true;
-    _board.initTest(unicodebool);
+    bool unicodebool=true;
+    if(unicode=="N" || unicode=="n" ) unicodebool=false;
+//   _board.initTest(unicodebool);
+    testbool?_board.initTest(unicodebool):_board.init(unicodebool);
     string np1;
     cout << "Choose a name for Player1 (white). Choose wisely, as it can't be changed later."<<endl;
     cin >> np1;
@@ -105,6 +111,31 @@ void Game::play()
             cout << "Invalid movement. Please try it again." << endl;
 
         }
+    }
+
+    switch (_board.getWinner())
+    {
+    case 1:
+    {
+        clearOutput();
+        cout << "The winner in black. \n";
+        break;
+    }
+    case 2:
+    {
+        clearOutput();
+        cout << "The winner is white. \n";
+        break;
+    }
+    case 3:
+    {
+        clearOutput();
+        cout << "Remis.\n";
+        break;
+    }
+    default:
+        break;
+
     }
 
 }

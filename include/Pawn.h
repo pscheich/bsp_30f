@@ -15,13 +15,14 @@ public:
     Pawn(int pos, bool black, bool unicode);
     virtual ~Pawn();
     bool moveEnabled(int newPos);
-    void setPosition(int pos);
+
     vector<int> getStepsBetween(int newPos) ;
     bool promotionPossible() const;
+    bool unmoved() const;
 protected:
 
 private:
-    bool _unMoved;
+
 };
 
 #endif // PAWN_H

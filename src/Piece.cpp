@@ -2,14 +2,14 @@
 #include <vector>
 #include <array>
 using namespace std;
-Piece::Piece():_position(),_symbol(""),_black(false)
+Piece::Piece():_position(),_symbol(""),_black(false),_unMoved(true)
 {
     //ctor
 }
 //Piece::Piece(int pos):_position(pos),_symbol("")
 //{
 //}
-Piece::Piece(int pos,  string sym,bool black):_position(pos),_symbol(sym),_black(black)
+Piece::Piece(int pos,  string sym,bool black):_position(pos),_symbol(sym),_black(black),_unMoved(true)
 {
 }
 
@@ -22,10 +22,7 @@ int Piece::getPosition()
 {
     return _position;
 }
-void Piece::setPosition(int pos)
-{
-    _position = pos;
-}
+
 //bool Piece::moveEnabled(int[] newPos)
 //{
 //    return false;
@@ -49,7 +46,18 @@ string const Piece::getSymbol() const
 {
     return _symbol;
 }
-  bool Piece::promotionPossible() const
+bool Piece::promotionPossible() const
 {
     return false;
+}
+
+bool Piece::unmoved() const
+{
+
+    return _unMoved;
+}
+void Piece::setPosition(int newPos)
+{
+    _unMoved = false;
+    _position = newPos;
 }
