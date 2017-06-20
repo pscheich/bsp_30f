@@ -96,7 +96,7 @@ void Board::initTest(bool unicode)
 {
     _unicode = unicode;
 
-    std::unique_ptr<Rock> R1 (new Rock(7*8+0, true,_unicode));
+    std::unique_ptr<Rock> R1 (new Rock(1*8+6, true,_unicode));
     _black.emplace_back(std::move(R1));
     std::unique_ptr<Rock> R2 (new Rock(7*8+7, true,_unicode));
     _black.emplace_back(std::move(R2));
