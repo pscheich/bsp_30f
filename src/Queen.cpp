@@ -34,7 +34,7 @@ bool Queen::moveEnabled(int newPos)
 }
 bool Queen::captureKing(int newPos)
 {
-return false;
+    return false;
 }
 vector<int> Queen::getStepsBetween(int newPos) //todo
 {

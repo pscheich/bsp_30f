@@ -32,7 +32,8 @@ private:
     bool CheckFreeWay(std::unique_ptr<Piece>& figure, const int& posEnd);
     void rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool& black, bool & ret, const int & posStart, const int & posEnd);
     void enPassant(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool& black, bool & ret, const int & posStart, const int & posEnd);
-    bool kingIsSafeRochade(const bool & black, const vector<int>& fields);
+    bool checkIfMovesPosible(const bool& black) ;
+    bool kingIsSafe(const bool & black, const vector<int>& fields);
     bool checkIfFree(vector<int> const & pos);
     bool checkIfOwnPiece( int const & posEnd,bool const & black);
     bool _unicode;
@@ -40,6 +41,9 @@ private:
     void pawnPromotion(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool & black);
     int _remiscounter50;
     int _lastwasdouble;
+
+    vector<vector<std::unique_ptr<Piece>>> _positionsBlack;
+    vector<vector<std::unique_ptr<Piece>>> _positionsWhite;
 };
 
 #endif // BOARD_H

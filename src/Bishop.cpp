@@ -47,7 +47,7 @@ vector<int> Bishop::getStepsBetween(int newPos)
 
     int p1 = _position>newPos?newPos:_position;
     int p2 = _position<newPos?newPos:_position;
-        int steps=p2%8-p1%8;
+    int steps=p2%8-p1%8;
     if (steps>1)
     {
         for (int i =p1+9; i<=p2-9; i+=9)

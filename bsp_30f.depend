@@ -2,7 +2,7 @@
 1446671344 source:c:\users\pata01\desktop\c++\bsp_30f\main.cpp
 	<iostream>
 
-1497305971 
+1497993207 
 
 1496916763 source:c:\users\pata01\desktop\c++\bsp_30f\src\bishop.cpp
 	"Bishop.h"
@@ -48,206 +48,6 @@
 	"Pawn.h"
 	"Piece.h"
 	"Game.h"
-
-1497219584 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Board.h
-	"Piece.h"
-	<memory>
-	<vector>
-
-1497219584 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Piece.h
-	<vector>
-	<iostream>
-	<array>
-
-1497219584 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/King.h
-	"Piece.h"
-	<vector>
-
-1497219584 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Queen.h
-	"Piece.h"
-	<vector>
-
-1497113713 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Bishop.h
-	"Piece.h"
-	<vector>
-
-1497219584 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Knight.h
-	"Piece.h"
-	<vector>
-
-1497219584 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Rock.h
-	"Piece.h"
-	<vector>
-
-1497179798 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Pawn.h
-	"Piece.h"
-	<vector>
-
-1497379040 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Bishop.cpp
-	"Bishop.h"
-	<cmath>
-
-1497380346 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Board.cpp
-	"Board.h"
-	"King.h"
-	"Queen.h"
-	"Bishop.h"
-	"Knight.h"
-	"Rock.h"
-	"Pawn.h"
-	"Piece.h"
-	<vector>
-	<iostream>
-	<memory>
-	<algorithm>
-	<string>
-	<array>
-
-1497380723 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/King.cpp
-	"King.h"
-	<cmath>
-
-1497180536 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Knight.cpp
-	"Knight.h"
-	<cmath>
-
-1497214029 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Pawn.cpp
-	"Pawn.h"
-	<cmath>
-
-1497219584 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Piece.cpp
-	"Piece.h"
-	<vector>
-	<array>
-
-1497380410 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Queen.cpp
-	"Queen.h"
-	<cmath>
-
-1497302371 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Rock.cpp
-	"Rock.h"
-	<cmath>
-
-1496939103 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Empty.cpp
-	"Empty.h"
-	<cmath>
-
-1496940633 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Empty.h
-	"Piece.h"
-	<vector>
-
-1497302613 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Game.h
-	"Board.h"
-	<string>
-	<iostream>
-
-1497303177 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Game.cpp
-	"Game.h"
-	<string>
-	<iostream>
-
-1497189497 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\main.cpp
-	<iostream>
-	"Board.h"
-	"King.h"
-	"Queen.h"
-	"Bishop.h"
-	"Knight.h"
-	"Rock.h"
-	"Pawn.h"
-	"Piece.h"
-	"Game.h"
-
-1497223184 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\board.h
-	"Piece.h"
-	<memory>
-	<vector>
-
-1497223184 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\piece.h
-	<vector>
-	<iostream>
-	<array>
-
-1497223184 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\king.h
-	"Piece.h"
-	<vector>
-
-1497223184 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\queen.h
-	"Piece.h"
-	<vector>
-
-1497117313 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\bishop.h
-	"Piece.h"
-	<vector>
-
-1497223184 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\knight.h
-	"Piece.h"
-	<vector>
-
-1497223184 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\rock.h
-	"Piece.h"
-	<vector>
-
-1497183398 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\pawn.h
-	"Piece.h"
-	<vector>
-
-1497306213 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\game.h
-	"Board.h"
-	<string>
-	<iostream>
-
-1497382640 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\bishop.cpp
-	"Bishop.h"
-	<cmath>
-
-1497383946 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\board.cpp
-	"Board.h"
-	"King.h"
-	"Queen.h"
-	"Bishop.h"
-	"Knight.h"
-	"Rock.h"
-	"Pawn.h"
-	"Piece.h"
-	<vector>
-	<iostream>
-	<memory>
-	<algorithm>
-	<string>
-	<array>
-
-1497306777 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\game.cpp
-	"Game.h"
-	<string>
-	<iostream>
-
-1497384323 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\king.cpp
-	"King.h"
-	<cmath>
-
-1497217629 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\pawn.cpp
-	"Pawn.h"
-	<cmath>
-
-1497223184 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\piece.cpp
-	"Piece.h"
-	<vector>
-	<array>
-
-1497384010 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\queen.cpp
-	"Queen.h"
-	<cmath>
-
-1497305971 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\rock.cpp
-	"Rock.h"
-	<cmath>
-
-1497385371 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\knight.cpp
-	"Knight.h"
-	<cmath>
-
-1497185897 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/main.cpp
 	<iostream>
 	"Board.h"
 	"King.h"
@@ -263,8 +63,14 @@
 	"Piece.h"
 	<memory>
 	<vector>
+	"Piece.h"
+	<memory>
+	<vector>
 
 1497910861 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Piece.h
+	<vector>
+	<iostream>
+	<array>
 	<vector>
 	<iostream>
 	<array>
@@ -272,33 +78,42 @@
 1497900197 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/King.h
 	"Piece.h"
 	<vector>
+	"Piece.h"
+	<vector>
 
 1497900197 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Queen.h
+	"Piece.h"
+	<vector>
 	"Piece.h"
 	<vector>
 
 1497900197 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Bishop.h
 	"Piece.h"
 	<vector>
+	"Piece.h"
+	<vector>
 
 1497900197 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Knight.h
+	"Piece.h"
+	<vector>
 	"Piece.h"
 	<vector>
 
 1497900197 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Rock.h
 	"Piece.h"
 	<vector>
+	"Piece.h"
+	<vector>
 
 1497900613 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Pawn.h
 	"Piece.h"
 	<vector>
-
-1497302613 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Game.h
-	"Board.h"
-	<string>
-	<iostream>
+	"Piece.h"
+	<vector>
 
 1497900278 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Bishop.cpp
+	"Bishop.h"
+	<cmath>
 	"Bishop.h"
 	<cmath>
 
@@ -317,21 +132,36 @@
 	<algorithm>
 	<string>
 	<array>
-
-1497894042 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Game.cpp
-	"Game.h"
-	<string>
+	"Board.h"
+	"King.h"
+	"Queen.h"
+	"Bishop.h"
+	"Knight.h"
+	"Rock.h"
+	"Pawn.h"
+	"Piece.h"
+	<vector>
 	<iostream>
+	<memory>
+	<algorithm>
+	<string>
+	<array>
 
 1497900264 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/King.cpp
+	"King.h"
+	<cmath>
 	"King.h"
 	<cmath>
 
 1497900264 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Knight.cpp
 	"Knight.h"
 	<cmath>
+	"Knight.h"
+	<cmath>
 
 1497900338 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Pawn.cpp
+	"Pawn.h"
+	<cmath>
 	"Pawn.h"
 	<cmath>
 
@@ -339,12 +169,264 @@
 	"Piece.h"
 	<vector>
 	<array>
+	"Piece.h"
+	<vector>
+	<array>
 
 1497909499 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Queen.cpp
 	"Queen.h"
 	<cmath>
+	"Queen.h"
+	<cmath>
 
 1497900264 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Rock.cpp
+	"Rock.h"
+	<cmath>
+	"Rock.h"
+	<cmath>
+
+1496939103 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Empty.cpp
+	"Empty.h"
+	<cmath>
+
+1496940633 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Empty.h
+	"Piece.h"
+	<vector>
+
+1497302613 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Game.h
+	"Board.h"
+	<string>
+	<iostream>
+	"Board.h"
+	<string>
+	<iostream>
+
+1497894042 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Game.cpp
+	"Game.h"
+	<string>
+	<iostream>
+	"Game.h"
+	<string>
+	<iostream>
+
+1497993207 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\main.cpp
+	<iostream>
+	<string>
+	"Board.h"
+	"King.h"
+	"Queen.h"
+	"Bishop.h"
+	"Knight.h"
+	"Rock.h"
+	"Pawn.h"
+	"Piece.h"
+	"Game.h"
+	<codecvt>
+
+1497995983 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\board.h
+	"Piece.h"
+	<memory>
+	<vector>
+
+1498001141 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\piece.h
+	<vector>
+	<iostream>
+	<array>
+	<memory>
+
+1498001382 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\king.h
+	"Piece.h"
+	<vector>
+	<memory>
+
+1498001499 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\queen.h
+	"Piece.h"
+	<vector>
+	<memory>
+
+1498001499 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\bishop.h
+	"Piece.h"
+	<vector>
+	<memory>
+
+1498001499 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\knight.h
+	"Piece.h"
+	<vector>
+	<memory>
+
+1498001499 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\rock.h
+	"Piece.h"
+	<vector>
+	<memory>
+
+1498001499 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\pawn.h
+	"Piece.h"
+	<vector>
+	<memory>
+
+1497993209 d:\_cpp\ue10\scheich_patrick\bsp_30f\include\game.h
+	"Board.h"
+	<string>
+	<iostream>
+
+1497993207 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\bishop.cpp
+	"Bishop.h"
+	<cmath>
+
+1497988956 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\board.cpp
+	"Board.h"
+	"King.h"
+	"Queen.h"
+	"Bishop.h"
+	"Knight.h"
+	"Rock.h"
+	"Pawn.h"
+	"Piece.h"
+	<vector>
+	<iostream>
+	<memory>
+	<algorithm>
+	<string>
+	<array>
+
+1497993207 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\game.cpp
+	"Game.h"
+	<string>
+	<iostream>
+
+1497993207 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\king.cpp
+	"King.h"
+	<cmath>
+
+1497993207 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\pawn.cpp
+	"Pawn.h"
+	<cmath>
+
+1497993207 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\piece.cpp
+	"Piece.h"
+	<vector>
+	<array>
+
+1497993207 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\queen.cpp
+	"Queen.h"
+	<cmath>
+
+1497993207 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\rock.cpp
+	"Rock.h"
+	<cmath>
+
+1497993207 source:d:\_cpp\ue10\scheich_patrick\bsp_30f\src\knight.cpp
+	"Knight.h"
+	<cmath>
+
+1497998612 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/main.cpp
+	<iostream>
+	<string>
+	"Board.h"
+	"King.h"
+	"Queen.h"
+	"Bishop.h"
+	"Knight.h"
+	"Rock.h"
+	"Pawn.h"
+	"Piece.h"
+	"Game.h"
+	<codecvt>
+
+1497998611 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Board.h
+	"Piece.h"
+	<memory>
+	<vector>
+
+1498050974 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Piece.h
+	<vector>
+	<iostream>
+	<array>
+	<memory>
+	<string>
+
+1498055387 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/King.h
+	"Piece.h"
+	<vector>
+	<memory>
+
+1498000118 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Queen.h
+	"Piece.h"
+	<vector>
+	<memory>
+
+1498055384 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Bishop.h
+	"Piece.h"
+	<vector>
+	<memory>
+
+1498055387 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Knight.h
+	"Piece.h"
+	<vector>
+	<memory>
+
+1498000118 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Rock.h
+	"Piece.h"
+	<vector>
+	<memory>
+
+1498055387 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Pawn.h
+	"Piece.h"
+	<vector>
+	<memory>
+
+1497998733 /MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/include/Game.h
+	"Board.h"
+	<string>
+	<iostream>
+
+1498002985 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Bishop.cpp
+	"Bishop.h"
+	<cmath>
+
+1498055043 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Board.cpp
+	"Board.h"
+	"King.h"
+	"Queen.h"
+	"Bishop.h"
+	"Knight.h"
+	"Rock.h"
+	"Pawn.h"
+	"Piece.h"
+	<vector>
+	<iostream>
+	<memory>
+	<algorithm>
+	<string>
+	<array>
+
+1497998611 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Game.cpp
+	"Game.h"
+	<string>
+	<iostream>
+
+1497998611 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/King.cpp
+	"King.h"
+	<cmath>
+
+1497998612 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Knight.cpp
+	"Knight.h"
+	<cmath>
+
+1497998611 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Pawn.cpp
+	"Pawn.h"
+	<cmath>
+
+1497998611 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Piece.cpp
+	"Piece.h"
+	<vector>
+	<array>
+
+1497998612 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Queen.cpp
+	"Queen.h"
+	<cmath>
+
+1497998612 source:/MEDIA/_cpp/ue10/Scheich_Patrick/bsp_30f/src/Rock.cpp
 	"Rock.h"
 	<cmath>
 

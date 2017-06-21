@@ -78,7 +78,7 @@ vector<int> Pawn::getStepsBetween(int newPos)
     return ret;
 }
 
- bool Pawn::promotionPossible() const
+bool Pawn::promotionPossible() const
 {
     bool ret;
     if(_black && _position/8==0)

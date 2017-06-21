@@ -22,13 +22,21 @@ void Game::_init()
     cin >> test;
     bool testbool=true;
     if(test=="N" || test=="n" ) testbool=false;
-    //  testbool?_board.initTest():_board.init();
-    string unicode;
-    cout << "Using Unicode Characters [Y/n]"<<endl;
-    cin >> unicode;
-    bool unicodebool=true;
-    if(unicode=="N" || unicode=="n" ) unicodebool=false;
-//   _board.initTest(unicodebool);
+
+//    string unicode;
+//    cout << "Using Unicode Characters [Y/n]"<<endl;
+//    cin >> unicode;
+//    bool unicodebool=true;
+//   if(unicode=="N" || unicode=="n" ) unicodebool=false;
+    bool unicodebool;
+
+#ifndef _WIN32
+    unicodebool = true;
+#else
+    unicodebool = false;
+#endif // _WIN32
+
+
     testbool?_board.initTest(unicodebool):_board.init(unicodebool);
     string np1;
     cout << "Choose a name for Player1 (white). Choose wisely, as it can't be changed later."<<endl;
