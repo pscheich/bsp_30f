@@ -6,9 +6,7 @@ Piece::Piece():_position(),_symbol(""),_black(false),_unMoved(true)
 {
     //ctor
 }
-//Piece::Piece(const int pos):_position(pos),_symbol("")
-//{
-//}
+
 Piece::Piece(const int pos,  string sym,const bool black):_position(pos),_symbol(sym),_black(black),_unMoved(true)
 {
 }

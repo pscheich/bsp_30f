@@ -8,18 +8,18 @@ using namespace std;
 class Game
 {
 public:
-    /** \brief
+    /** \brief Constructor
      *
      *
      */
     Game();
-    /** \brief
+    /** \brief Destructor
      *
      * \return virtual
      *
      */
     virtual ~Game();
-    /** \brief
+    /** \brief Override << Operator
      *
      * \param s ostream&
      * \param rhs const Game&
@@ -27,7 +27,7 @@ public:
      *
      */
     friend    ostream& operator<<(ostream& s, const Game& rhs ) ;
-    /** \brief
+    /** \brief Start the Game
      *
      * \return void
      *
@@ -36,13 +36,13 @@ public:
 protected:
 
 private:
-    /** \brief
+    /** \brief Init Game
      *
      * \return void
      *
      */
     void _init();
-    /** \brief
+    /** \brief Clear Output in Terminal
      *
      * \return void
      *

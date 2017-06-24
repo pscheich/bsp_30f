@@ -11,12 +11,12 @@ using namespace std;
 class Piece
 {
 public:
-    /** \brief
+    /** \brief Constructor
      *
      *
      */
     Piece();
-    /** \brief
+    /** \brief Constructor
      *
      * \param pos int
      * \param sym string
@@ -24,7 +24,7 @@ public:
      *
      */
     Piece(const int pos, const string sym,const bool black);
-    /** \brief
+    /** \brief Constructor
      *
      * \param x int
      * \param y int
@@ -33,86 +33,86 @@ public:
      *
      */
     Piece(const int x,const int y,const  string sym,const bool black);
-    /** \brief
+    /** \brief Constructor
      *
      * \param pos int
      *
      */
     Piece(const int pos);
-    /** \brief
+    /** \brief clone function
      *
      * \return virtual std::unique_ptr<Piece>
      *
      */
     virtual std::unique_ptr<Piece> clone() const = 0;
 
-    /** \brief
+    /** \brief Destructor
      *
      * \return virtual
      *
      */
     virtual ~Piece();
-    /** \brief
+    /** \brief check if move enabled
      *
      * \param newPos int
      * \return virtual  bool
      *
      */
     virtual  bool moveEnabled(const int newPos)const =0 ;
-    /** \brief
+    /** \brief check if move enabled for capturing, the same as moveEnabled, exception is pawn
      *
      * \param newPos int
      * \return virtual  bool
      *
      */
     virtual  bool moveEnabled4Capture(const int newPos)  const;
-    /** \brief
+    /** \brief check if piece can capture an other field
      *
      * \param newPos int
      * \return virtual  bool
      *
      */
     virtual  bool captureKing(const int newPos) const =0;
-    /** \brief
+    /** \brief check if promotion is possible = false, just pawns with real check
      *
      * \return virtual  bool
      *
      */
     virtual  bool promotionPossible() const ;
-    /** \brief
+    /** \brief Getter Position
      *
      * \return int
      *
      */
     int getPosition() const;
-    /** \brief
+    /** \brief Getter Black
      *
      * \return bool
      *
      */
     bool  getBlack() const;
-    /** \brief
+    /** \brief Setter Position
      *
      * \param newPos int
      * \return void
      *
      */
     void setPosition(const int newPos);
-    /** \brief
+    /** \brief change position without manupulate _moved
     *
     * \param newPos int
     * \return void
     *
     */
     void setPosition4Test(const int newPos);
-    /** \brief
+    /** \brief check if unmoved
      *
      * \return bool
      *
      */
     bool unmoved() const;
 
-    /** \brief
+    /** \brief Print piece
      *
      * \param std::array<string
      * \param board 64>&
@@ -120,13 +120,13 @@ public:
      *
      */
     void printOnBoard(std::array<string, 64> &board) const;
-    /** \brief
+    /** \brief getter symbol
      *
      * \return string const
      *
      */
     string const getSymbol() const;
-    /** \brief
+    /** \brief get all stepps beween pos now and end pos, move has to be correct
      *
      * \param newPos int
      * \return virtual vector<int>
@@ -135,7 +135,7 @@ public:
     virtual vector<int> getStepsBetween(const int newPos) const =0 ;
 
 
-    /** \brief
+    /** \brief Override << Operator
      *
      * \param s ostream&
      * \param rhs const Piece&
@@ -144,7 +144,7 @@ public:
      */
     friend ostream& operator<<(ostream& s, const Piece& rhs );
 protected:
-    /** \brief
+    /** \brief check if newPos<64
      *
      * \param newPos int
      * \return bool

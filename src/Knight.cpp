@@ -30,9 +30,9 @@ bool Knight::moveEnabled(const int newPos) const
     else
     {
         if(!(
-            (((abs(newPos/8-_position/8))==1 ) &&( abs(newPos%8-_position%8) == 2))
-            !=
-            (((abs(newPos/8-_position/8))==2) &&( abs(newPos%8-_position%8) == 1))
+                    (((abs(newPos/8-_position/8))==1 ) &&( abs(newPos%8-_position%8) == 2))
+                    !=
+                    (((abs(newPos/8-_position/8))==2) &&( abs(newPos%8-_position%8) == 1))
                 ))
             ret = false;
     }
@@ -46,9 +46,9 @@ bool Knight::captureKing(const int newPos) const
     else
     {
         if(!(
-            (((abs(newPos/8-_position/8))==1 ) &&( abs(newPos%8-_position%8) == 2))
-            !=
-            (((abs(newPos/8-_position/8))==2) &&( abs(newPos%8-_position%8) == 1))
+                    (((abs(newPos/8-_position/8))==1 ) &&( abs(newPos%8-_position%8) == 2))
+                    !=
+                    (((abs(newPos/8-_position/8))==2) &&( abs(newPos%8-_position%8) == 1))
                 ))
             ret = false;
     }
@@ -56,7 +56,7 @@ bool Knight::captureKing(const int newPos) const
 }
 vector<int> Knight::getStepsBetween(const int) const
 {
- //   newPos++; //damit warnung verschwindet
+//   newPos++; //damit warnung verschwindet
     vector<int> ret = {-1};
     return ret;
 }

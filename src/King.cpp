@@ -51,7 +51,7 @@ bool King::captureKing(const int newPos) const
 }
 vector<int> King::getStepsBetween(const int ) const
 {
- //   newPos++; //damit warnung verschwindet
+//   newPos++; //damit warnung verschwindet
     vector<int> ret = {-1};
     return ret;
 }

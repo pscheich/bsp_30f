@@ -8,31 +8,31 @@ using namespace std;
 class Board
 {
 public:
-    /** \brief
+    /** \brief Constructor
      *
      * \param unicode bool
      *
      */
     Board(bool unicode);
-    /** \brief
+    /** \brief Destructor
      *
      * \return virtual
      *
      */
     virtual ~Board();
-    /** \brief
+    /** \brief getter black list
      *
      * \return std::vector<std::unique_ptr<Piece>>  const&
      *
      */
     std::vector<std::unique_ptr<Piece>>  const & getBlack() const;
-    /** \brief
+    /** \brief getter white list
      *
      * \return std::vector<std::unique_ptr<Piece>>  const&
      *
      */
     std::vector<std::unique_ptr<Piece>>  const &  getWhite() const;
-    /** \brief
+    /** \brief Override << Operator
      *
      * \param s ostream&
      * \param rhs const Board&
@@ -40,7 +40,7 @@ public:
      *
      */
     friend    ostream& operator<<(ostream& s, const Board& rhs ) ;
-    /** \brief
+    /** \brief move function
      *
      * \param posStart int const&
      * \param posEnd int const&
@@ -50,7 +50,7 @@ public:
      */
     bool move(const int  posStart, const int posEnd, const bool black);
 
-    /** \brief
+    /** \brief setter unicode
      *
      * \param unicode bool
      * \return void
@@ -58,21 +58,21 @@ public:
      */
     void setUnicode(bool unicode);
 
-    /** \brief
+    /** \brief init regular field
      *
      * \param =false bool unicode
      * \return void
      *
      */
     void init(bool unicode =false);
-    /** \brief
+    /** \brief init Test field
      *
      * \param =false bool unicode
      * \return void
      *
      */
     void initTest(bool unicode =false);
-    /** \brief
+    /** \brief Getter Winner
      *
      * \return int const&
      *
@@ -83,7 +83,7 @@ protected:
 
 private:
 
-    /** \brief
+    /** \brief check if way to endpos for figure is free
      *
      * \param figure std::unique_ptr<Piece>&
      * \param posEnd int
@@ -91,7 +91,7 @@ private:
      *
      */
     bool CheckFreeWay(std::unique_ptr<Piece>& figure, const int posEnd);
-    /** \brief
+    /** \brief check and do rochade
      *
      * \param figure std::vector<std::unique_ptr<Piece>>::iterator&
      * \param black bool
@@ -102,7 +102,7 @@ private:
      *
      */
     void rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool black, bool& ret, const int posStart, const int posEnd);
-    /** \brief
+    /** \brief check and do enpassant pawns
      *
      * \param figure std::vector<std::unique_ptr<Piece>>::iterator&
      * \param black bool
@@ -113,7 +113,7 @@ private:
      *
      */
     void enPassant(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool black, bool& ret, const int posStart, const int posEnd);
-    /** \brief
+    /** \brief check and do Pawn promotion
      *
      * \param figure std::vector<std::unique_ptr<Piece>>::iterator&
      * \param black bool
@@ -121,21 +121,14 @@ private:
      *
      */
     void pawnPromotion(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool black);
-    /** \brief
+    /** \brief check if more moves are possible, remis
      *
      * \param black bool
      * \return bool
      *
      */
     bool checkIfMovesPossible(const bool black)  ;
-    /** \brief
-     *
-     * \param black bool
-     * \param fields const vector<int>&
-     * \return bool
-     *
-     */
-    /** \brief
+    /** \brief Check if King is save on fields
      *
      * \param black bool
      * \param fields const vector<int>&
@@ -143,14 +136,14 @@ private:
      *
      */
     bool kingIsSafe(const bool black, const vector<int>& fields) ;
-    /** \brief
+    /** \brief check if fields are free
      *
      * \param pos vector<int> const&
      * \return bool
      *
      */
     bool checkIfFree(vector<int> const & pos) ;
-    /** \brief
+    /** \brief Check if own Figure on endfield
      *
      * \param posEnd int const&
      * \param black bool const&

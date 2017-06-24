@@ -7,19 +7,19 @@ using namespace std;
 class Rock : public Piece
 {
 public:
-    /** \brief
+    /** \brief Constructor
      *
      *
      */
     Rock();
-    /** \brief
+    /** \brief Constructor
      *
      * \param pos int
      * \param black bool
      *
      */
     Rock(const int pos, const bool black);
-    /** \brief
+    /** \brief Constructor
      *
      * \param pos int
      * \param black bool
@@ -27,40 +27,40 @@ public:
      *
      */
     Rock(const int pos, const bool black, const bool unicode);
-    /** \brief
+    /** \brief Constructor Copy
      *
      * \param _rhs
      * \return Rock(const Rock& _rhs):
      *
      */
     Rock(const Rock& _rhs);
-    /** \brief
+    /** \brief clone function
      *
      * \return std::unique_ptr<Piece>
      *
      */
     std::unique_ptr<Piece> clone() const override;
-    /** \brief
+    /** \brief Destructor
      *
      * \return virtual
      *
      */
     virtual ~Rock();
-    /** \brief
+    /** \brief check if move enabled
      *
      * \param newPos int
      * \return bool
      *
      */
     bool moveEnabled(const int newPos)const override;
-    /** \brief
+    /** \brief check if piece can capture an other field
      *
      * \param newPos int
      * \return bool
      *
      */
     bool captureKing(const int newPos) const override;
-    /** \brief
+    /** \brief get all stepps beween pos now and end pos, move has to be correct
      *
      * \param newPos int
      * \return vector<int>

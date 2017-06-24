@@ -112,7 +112,7 @@ void Board::initTest(bool unicode)
     _black.emplace_back(std::move(B2));
     std::unique_ptr<Queen> Q (new Queen(5*8+3, true,_unicode));
     _black.emplace_back(std::move(Q));
-    std::unique_ptr<King> K (new King(7*8+4, true,_unicode));
+    std::unique_ptr<King> K (new King(7*8+3, true,_unicode));
     _black.emplace_back(std::move(K));
     std::unique_ptr<Pawn> P1 (new Pawn(3*8+1, true,_unicode));
     _black.emplace_back(std::move(P1));
@@ -139,7 +139,7 @@ void Board::initTest(bool unicode)
     _white.emplace_back(std::move(b2));
     std::unique_ptr<Queen> q (new Queen(2*8+3, false,_unicode));
     _white.emplace_back(std::move(q));
-    std::unique_ptr<King> k (new King(0*8+4, false,_unicode));
+    std::unique_ptr<King> k (new King(0*8+3, false,_unicode));
     _white.emplace_back(std::move(k));
     std::unique_ptr<Pawn> p1 (new Pawn(1*8+0, false,_unicode));
     _white.emplace_back(std::move(p1));
@@ -169,9 +169,9 @@ void Board::init(bool unicode)
     _black.emplace_back(std::move(B1));
     std::unique_ptr<Bishop> B2 (new Bishop(7*8+5, true,_unicode));
     _black.emplace_back(std::move(B2));
-    std::unique_ptr<Queen> Q (new Queen(7*8+3, true,_unicode));
+    std::unique_ptr<Queen> Q (new Queen(7*8+4, true,_unicode));
     _black.emplace_back(std::move(Q));
-    std::unique_ptr<King> K (new King(7*8+4, true,_unicode));
+    std::unique_ptr<King> K (new King(7*8+3, true,_unicode));
     _black.emplace_back(std::move(K));
 
 
@@ -194,9 +194,9 @@ void Board::init(bool unicode)
     _white.emplace_back(std::move(b1));
     std::unique_ptr<Bishop> b2 (new Bishop(0*8+5, false,_unicode));
     _white.emplace_back(std::move(b2));
-    std::unique_ptr<Queen> q (new Queen(0*8+3, false,_unicode));
+    std::unique_ptr<Queen> q (new Queen(0*8+4, false,_unicode));
     _white.emplace_back(std::move(q));
-    std::unique_ptr<King> k (new King(0*8+4, false,_unicode));
+    std::unique_ptr<King> k (new King(0*8+3, false,_unicode));
     _white.emplace_back(std::move(k));
 
 }
@@ -485,55 +485,11 @@ void Board::rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure, cons
 
             switch(foo)
             {
-            case 2:
-            {
-                if (!black)
-                {
-                    auto  turm = std::find_if(figurenSpieler.begin(),figurenSpieler.end(), [&](std::unique_ptr<Piece> & piece)// Falls Sie die Rochade-Zusatzaufgabe gemacht haben, implementieren Sie auch alle Rochade-Voraussetzungen.
-                    {
-                        return piece->getPosition() == 7;
-                    });
-                    if (turm!=figurenSpieler.end())
-                    {
-                        vector<int> vec;
-                        vec.push_back(5);
-                        vec.push_back(6);
-                        if ((*turm)->unmoved()&&checkIfFree(vec)&&kingIsSafe(black,vec))
-                        {
-                            (*turm)->setPosition(5);
-                            (*figure)->setPosition(6);
-                            ret=true;
-                        }
-                    }
-                }
-                else
-                {
-
-                    auto  turm = std::find_if(figurenSpieler.begin(),figurenSpieler.end(), [&](std::unique_ptr<Piece> & piece)
-                    {
-                        return piece->getPosition() == 63;
-                    });
-                    if (turm!=figurenSpieler.end())
-                    {
-                        vector<int> vec;
-                        vec.push_back(61);
-                        vec.push_back(62);
-                        if ((*turm)->unmoved()&&checkIfFree(vec)&&kingIsSafe(black,vec))
-                        {
-                            (*turm)->setPosition(61);
-                            (*figure)->setPosition(62);
-                            ret=true;
-                        }
-                    }
-                }
-                break;
-            }
-
             case -2:
             {
                 if (!black)
                 {
-                    auto  turm = std::find_if(figurenSpieler.begin(),figurenSpieler.end(), [&](std::unique_ptr<Piece> & piece)
+                    auto  turm = std::find_if(figurenSpieler.begin(),figurenSpieler.end(), [&](std::unique_ptr<Piece> & piece)// Falls Sie die Rochade-Zusatzaufgabe gemacht haben, implementieren Sie auch alle Rochade-Voraussetzungen.
                     {
                         return piece->getPosition() == 0;
                     });
@@ -542,20 +498,17 @@ void Board::rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure, cons
                         vector<int> vec;
                         vec.push_back(1);
                         vec.push_back(2);
-                        vec.push_back(3);
-//                        bool fooo=(*turm)->unmoved();
-//                        bool foooo= checkIfFree(vec);
-//                        bool fooooo= kingIsSafeRochade(black,vec);
                         if ((*turm)->unmoved()&&checkIfFree(vec)&&kingIsSafe(black,vec))
                         {
-                            (*turm)->setPosition(3);
-                            (*figure)->setPosition(2);
+                            (*turm)->setPosition(2);
+                            (*figure)->setPosition(1);
                             ret=true;
                         }
                     }
                 }
                 else
                 {
+
                     auto  turm = std::find_if(figurenSpieler.begin(),figurenSpieler.end(), [&](std::unique_ptr<Piece> & piece)
                     {
                         return piece->getPosition() == 56;
@@ -565,12 +518,59 @@ void Board::rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure, cons
                         vector<int> vec;
                         vec.push_back(57);
                         vec.push_back(58);
-                        vec.push_back(59);
+                        if ((*turm)->unmoved()&&checkIfFree(vec)&&kingIsSafe(black,vec))
+                        {
+                            (*turm)->setPosition(58);
+                            (*figure)->setPosition(57);
+                            ret=true;
+                        }
+                    }
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (!black)
+                {
+                    auto  turm = std::find_if(figurenSpieler.begin(),figurenSpieler.end(), [&](std::unique_ptr<Piece> & piece)
+                    {
+                        return piece->getPosition() == 7;
+                    });
+                    if (turm!=figurenSpieler.end())
+                    {
+                        vector<int> vec;
+                        vec.push_back(6);
+                        vec.push_back(5);
+                        vec.push_back(4);
+//                        bool fooo=(*turm)->unmoved();
+//                        bool foooo= checkIfFree(vec);
+//                        bool fooooo= kingIsSafeRochade(black,vec);
+                        if ((*turm)->unmoved()&&checkIfFree(vec)&&kingIsSafe(black,vec))
+                        {
+                            (*turm)->setPosition(4);
+                            (*figure)->setPosition(5);
+                            ret=true;
+                        }
+                    }
+                }
+                else
+                {
+                    auto  turm = std::find_if(figurenSpieler.begin(),figurenSpieler.end(), [&](std::unique_ptr<Piece> & piece)
+                    {
+                        return piece->getPosition() == 63;
+                    });
+                    if (turm!=figurenSpieler.end())
+                    {
+                        vector<int> vec;
+                        vec.push_back(62);
+                        vec.push_back(61);
+                        vec.push_back(60);
 
                         if ((*turm)->unmoved()&&checkIfFree(vec)&&kingIsSafe(black,vec))
                         {
-                            (*turm)->setPosition(59);
-                            (*figure)->setPosition(58);
+                            (*turm)->setPosition(60);
+                            (*figure)->setPosition(61);
                             ret=true;
                         }
                     }
