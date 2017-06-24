@@ -228,7 +228,7 @@ bool Board::CheckFreeWay(std::unique_ptr<Piece>& figure, const int& posEnd)  //c
 
     return ret;
 }
-bool Board::checkIfMovesPosible(const bool& black)
+bool Board::checkIfMovesPossible(const bool& black)
 {
     bool ret = false;
     auto &figurenSpieler = (black?_black:_white);
@@ -290,7 +290,7 @@ bool Board::checkIfOwnPiece( int const & posEnd,bool const & black)
 bool Board::move(int const &  posStart, int const & posEnd,bool const & black)
 {
     bool ret=false;
-    _remiscounter50++;
+    _remiscounter50++;  //mindestens 50 Zuge lang weder eine Figur geschlagen noch ein Bauer gezogen wurde.
 
     auto &figurenSpieler = (black?_black:_white);
     auto &figurenGegner = (black?_white:_black);
@@ -304,7 +304,7 @@ bool Board::move(int const &  posStart, int const & posEnd,bool const & black)
     {
         aufstellung.emplace_back(std::move(p->clone()));
     });
-    int aufstellungCounter = 0;
+    int aufstellungCounter = 0;  // zum mindestens dritten mal dieselbe Stellung mit demselben Spieler am Zug und denselben Zugm¨oglichkeiten vorliegt oder
     if(black)
     {
         aufstellungCounter = std::count_if(_positionsBlack.begin(),_positionsBlack.end(), [&](const vector<std::unique_ptr<Piece>>& p)
@@ -324,24 +324,13 @@ bool Board::move(int const &  posStart, int const & posEnd,bool const & black)
 
     if(aufstellungCounter < 3)
     {
-
-
-
-
-
-
-
-//   black?_positionsBlack.push_back(&aufstellung):_positionsWhite.push_back(&aufstellung);
-
         auto  kingPlayer = std::find_if(figurenSpieler.begin(),figurenSpieler.end(), [&](std::unique_ptr<Piece> & piece)
         {
             return dynamic_cast<King *>(piece.get()) != nullptr;
         });
-
         vector<int> kingPos = {(*kingPlayer)->getPosition()};
-        if(checkIfMovesPosible(black))
+        if(checkIfMovesPossible(black)) // der am Zug befindliche Spieler keine Zugm¨oglichkeit hat, sein K¨onig sich jedoch nicht im Schach befindet (d.h. wenn der nicht bedrohter allein ubrig gebliebener ¨K¨onig nicht ziehen kann, ohne bedroht zu werden)
         {
-
             auto  figure = std::find_if(figurenSpieler.begin(),figurenSpieler.end(), [&](std::unique_ptr<Piece> & piece)
             {
                 return piece->getPosition() == posStart;
@@ -349,26 +338,16 @@ bool Board::move(int const &  posStart, int const & posEnd,bool const & black)
             bool found = figure != figurenSpieler.end(); //check ob figur an position
             if(found)
             {
-                if((*figure)->moveEnabled(posEnd)&&(CheckFreeWay((*figure),posEnd))&&checkIfOwnPiece(posEnd,black))
+                if((*figure)->moveEnabled(posEnd)&&(CheckFreeWay((*figure),posEnd))&&checkIfOwnPiece(posEnd,black))  //ZugRichtung eraubt, Weg ist frei, auf Endposition ist keine eigene Figur, die des Gegners würde geschlagen werden
                 {
-
-
-
                     int endPosKing =  (dynamic_cast<King *>(figure->get()) != nullptr)?posEnd:(*kingPlayer)->getPosition();
-//check ob könig nach ende des zugs gefährdet
-                    auto  canCaptureKing = std::find_if( figurenGegner.begin(), figurenGegner.end(), [&](std::unique_ptr<Piece> & piece)
-                    {
-                        //    bool bla = piece->captureKing(posEnd);
-                        //    string r =  piece->getSymbol();
-                        return piece->captureKing(endPosKing) == true; //endpos king
-                    });
-                    if(canCaptureKing == figurenGegner.end())
-
+                    (*figure)->setPosition4Test(posEnd); //Zuziehende Figur wird bewegt, um zu prüfen ob danach der König im Schach steht.
+                    vector<int> kingFieldVec = {endPosKing};
+                    if(kingIsSafe(black,kingFieldVec))
                     {
                         ret=true;
-                        (*figure)->setPosition(posEnd);
-
-                        auto  figureGeschlagen = std::find_if( figurenGegner.begin(), figurenGegner.end(), [&](std::unique_ptr<Piece> & piece)
+                        (*figure)->setPosition(posEnd); //der unmoves bool wird jetzt geändert, da der zug ok ist
+                        auto  figureGeschlagen = std::find_if( figurenGegner.begin(), figurenGegner.end(), [&](std::unique_ptr<Piece> & piece)  //Gegner Figur wird entfernt
                         {
                             return piece->getPosition() == posEnd;
                         });
@@ -378,65 +357,72 @@ bool Board::move(int const &  posStart, int const & posEnd,bool const & black)
                             if(dynamic_cast<Pawn *>(figure->get()) != nullptr) // wenn bauer geraudeaus schlagen will
                             {
                                 (*figure)->setPosition(posStart);
-                                ret=false;
+                                ret=false;  //Ret ist doch falsch, Ausnahme zu zeile 352
                             }
                             else
                             {
                                 figurenGegner.erase(figureGeschlagen);
+                                _remiscounter50=0;  // Figur geschlagen, Zähler nullen
+                                _positionsWhite.clear();
+                                _positionsBlack.clear();//Die können hier geleert werden, da eine figur geshclagen wurde, und die alten situatuionen nicht mehr aufztreten können
                             }
-                            _remiscounter50=0;
+                        }
+                        if(dynamic_cast<Pawn *>(figure->get()) != nullptr) //en passant
+                        {
+                            _positionsWhite.clear();
+                            _positionsBlack.clear();//Die können hier geleert werden, da einerin bauer gezogen wurde, und die alten situatuionen nicht mehr aufztreten können
                         }
                         if(dynamic_cast<Pawn *>(figure->get()) != nullptr) //remis
                         {
                             _remiscounter50=0;
-
                         }
                         if(dynamic_cast<Pawn *>(figure->get()) != nullptr && (std::abs(posStart/8-posEnd/8) == 2)) //en passant
                         {
-
                             _lastwasdouble=posEnd;
                         }
                         else
                             _lastwasdouble=-1;
                         //Bauernumwandlung
-                        pawnPromotion(figure,black);
-
+                        pawnPromotion(figure,black);  //Implementieren Sie die Verwandlung eines Bauers in eine andre Figur.
 //                if(dynamic_cast<King *>(figureGeschlagen->get()) != nullptr) //schachmatt   ## unnötig, da der könig nie geschlagen werden kann, das spiel ist vorher fertig
 //                {
 //                    black?_winner=2:_winner=1;
 //                }
-
-
+                    }
+                    else
+                    {
+                        (*figure)->setPosition(posStart); //Der König würde nach dem Zug im Schach stehen, die zuziehende FIgur wird zurückgesetzt
+                        //   cout << (*canCaptureKing)->getSymbol();
                     }
                 }
                 else
                 {
                     //rochade
                     if(!ret)
-                        rochade(figure, black, ret,posStart,posEnd);
+                        rochade(figure, black, ret,posStart,posEnd); //Implementieren Sie die M¨oglichkeit einer Rochade,
 
                     //en passant
-                    if(!ret&&_lastwasdouble>-1)
+                    if(!ret&&_lastwasdouble>-1)  //Implementieren Sie die en-passant-Regel.
                     {
                         enPassant(figure, black, ret,posStart,posEnd);
                     }
                 }
             }
-            if(_remiscounter50 ==50)
+            if(_remiscounter50 ==50)   //Unendschieden >=50 Züge
                 _winner=3;
         }
-        else  if(!checkIfMovesPosible(black) && kingIsSafe(black,kingPos))
+        else  if(!checkIfMovesPossible(black) && kingIsSafe(black,kingPos))   //Unentschieden keine Zugmöglichkeit König nciht gefährdet
         {
             _winner=3;
             ret = true;
         }
-        else  if(!checkIfMovesPosible(black) && !kingIsSafe(black,kingPos))
+        else  if(!checkIfMovesPossible(black) && !kingIsSafe(black,kingPos)) //Normaler Sieg
         {
             black?_winner=2:_winner=1;
             ret = true;
         }
     }
-    else
+    else  //Unentschieden drei mal gleiche Aufstellung
     {
         _winner=3;
         ret = true;
@@ -480,7 +466,7 @@ void Board::rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure, cons
             {
                 if (!black)
                 {
-                    auto  turm = std::find_if(figurenSpieler.begin(),figurenSpieler.end(), [&](std::unique_ptr<Piece> & piece)
+                    auto  turm = std::find_if(figurenSpieler.begin(),figurenSpieler.end(), [&](std::unique_ptr<Piece> & piece)// Falls Sie die Rochade-Zusatzaufgabe gemacht haben, implementieren Sie auch alle Rochade-Voraussetzungen.
                     {
                         return piece->getPosition() == 7;
                     });
@@ -576,9 +562,6 @@ void Board::rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure, cons
             }
         }
     }
-
-
-
 }
 
 bool Board::kingIsSafe(const bool & black, const vector<int>& fields)
@@ -608,8 +591,6 @@ bool Board::kingIsSafe(const bool & black, const vector<int>& fields)
     {
         ret = false;
     }
-
-
     return ret;
 }
 

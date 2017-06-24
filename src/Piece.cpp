@@ -65,3 +65,7 @@ void Piece::setPosition(int newPos)
     _unMoved = false;
     _position = newPos;
 }
+void Piece::setPosition4Test(int newPos)
+{
+    _position = newPos;
+}
