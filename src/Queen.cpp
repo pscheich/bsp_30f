@@ -5,19 +5,24 @@ Queen::Queen()
 {
     //ctor
 }
-Queen::Queen(int pos, bool black):Piece(pos,black? "Q" : "q",black)
+Queen::Queen(const int pos, const bool black):Piece(pos,black? "Q" : "q",black)
 {
     //ctor
 }
-Queen::Queen(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265B" : "\u2655":black? "Q" : "q",black)
+Queen::Queen(const int pos, const bool black,const bool unicode):Piece(pos,unicode?black? "\u265B" : "\u2655":black? "Q" : "q",black)
 {
     //ctor
 }
+Queen::Queen(const Queen& _rhs) : Piece(_rhs) {}
 Queen::~Queen()
 {
     //dtor
 }
-bool Queen::moveEnabled(int newPos)
+std::unique_ptr<Piece> Queen::clone() const
+{
+    return std::unique_ptr<Piece>(new Queen(*this));
+}
+bool Queen::moveEnabled(const int newPos) const
 {
 
     bool ret= true;
@@ -32,7 +37,7 @@ bool Queen::moveEnabled(int newPos)
     }
     return ret;
 }
-bool Queen::captureKing(int newPos)
+bool Queen::captureKing(const int newPos) const
 {
     bool ret= true;
     if(!checkInField(newPos))
@@ -44,7 +49,7 @@ bool Queen::captureKing(int newPos)
     }
     return ret;
 }
-vector<int> Queen::getStepsBetween(int newPos)
+vector<int> Queen::getStepsBetween(const int newPos) const
 {
     vector<int> ret;
 

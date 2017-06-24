@@ -10,20 +10,79 @@ class Pawn : public Piece
 {
 public:
 
+    /** \brief
+     *
+     *
+     */
     Pawn();
-    Pawn(int pos, bool black);
-    Pawn(int pos, bool black, bool unicode);
-    Pawn(const Pawn& _rhs) : Piece(_rhs) {};
-    std::unique_ptr<Piece> clone() const
-    {
-        return std::unique_ptr<Piece>(new Pawn(*this));
-    }
+    /** \brief
+     *
+     * \param pos int
+     * \param black bool
+     *
+     */
+    Pawn(const int pos, const bool black);
+    /** \brief
+     *
+     * \param pos int
+     * \param black bool
+     * \param unicode bool
+     *
+     */
+    Pawn(const int pos, const bool black, const bool unicode);
+    /** \brief
+     *
+     * \param _rhs const Pawn&
+     *
+     */
+    Pawn(const Pawn& _rhs);
+    /** \brief
+     *
+     * \return std::unique_ptr<Piece>
+     *
+     */
+    std::unique_ptr<Piece> clone() const override;
+    /** \brief
+     *
+     * \return virtual
+     *
+     */
     virtual ~Pawn();
-    bool moveEnabled(int newPos);
-    bool captureKing(int newPos);
-    vector<int> getStepsBetween(int newPos) ;
-    bool promotionPossible() const;
-    bool unmoved() const;
+    /** \brief
+     *
+     * \param newPos int
+     * \return bool
+     *
+     */
+    bool moveEnabled(const int newPos) const override;
+    /** \brief
+     *
+     * \param newPos int
+     * \return bool
+     *
+     */
+    bool moveEnabled4Capture(const int newPos) const override;
+    /** \brief
+     *
+     * \param newPos int
+     * \return bool
+     *
+     */
+    bool captureKing(const int newPos) const override;
+    /** \brief
+     *
+     * \param newPos int
+     * \return vector<int>
+     *
+     */
+    vector<int> getStepsBetween(const int newPos) const override;
+    /** \brief
+     *
+     * \return bool
+     *
+     */
+    bool promotionPossible() const override;
+
 protected:
 
 private:

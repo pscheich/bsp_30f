@@ -107,7 +107,6 @@ void Game::play()
         startPos=inputStartX+inputStartY*8 ;
         endPos=inputEndX+inputEndY*8 ;
 
-        cout << startPos << " +++ " << endPos << endl;
         clearOutput();
         if(_board.move(startPos,endPos,!_player1turn))
         {

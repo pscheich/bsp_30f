@@ -5,19 +5,24 @@ Bishop::Bishop()
 {
     //ctor
 }
-Bishop::Bishop(int pos, bool black):Piece(pos,black? "B" : "b",black)
+Bishop::Bishop(const int pos, const bool black):Piece(pos,black? "B" : "b",black)
 {
     //ctor
 }
-Bishop::Bishop(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265D" : "\u2657":black? "B" : "b",black)
+Bishop::Bishop(const int pos, const bool black,bool unicode):Piece(pos,unicode?black? "\u265D" : "\u2657":black? "B" : "b",black)
 {
     //ctor
 }
+Bishop::Bishop(const Bishop& _rhs) : Piece(_rhs) {}
 Bishop::~Bishop()
 {
     //dtor
 }
-bool Bishop::moveEnabled(int newPos)
+std::unique_ptr<Piece> Bishop::clone() const
+{
+    return std::unique_ptr<Piece>(new Bishop(*this));
+}
+bool Bishop::moveEnabled(const int newPos) const
 {
     bool ret= true;
     if(!checkInField(newPos))
@@ -29,7 +34,7 @@ bool Bishop::moveEnabled(int newPos)
     }
     return ret;
 }
-bool Bishop::captureKing(int newPos)
+bool Bishop::captureKing(const int newPos) const
 {
     bool ret= true;
     if(!checkInField(newPos))
@@ -41,7 +46,7 @@ bool Bishop::captureKing(int newPos)
     }
     return ret;
 }
-vector<int> Bishop::getStepsBetween(int newPos)
+vector<int> Bishop::getStepsBetween(const int newPos) const
 {
     vector<int> ret;
 

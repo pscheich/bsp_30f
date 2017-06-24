@@ -18,7 +18,7 @@ public:
      * \param black bool
      *
      */
-    Knight(int pos, bool black);
+    Knight(const int pos, const bool black);
     /** \brief
      *
      * \param pos int
@@ -26,23 +26,20 @@ public:
      * \param unicode bool
      *
      */
-    Knight(int pos, bool black, bool unicode);
+    Knight(const int pos, const bool black, const bool unicode);
     /** \brief
      *
      * \param _rhs
      * \return Knight(const Knight& _rhs):
      *
      */
-    Knight(const Knight& _rhs) : Piece(_rhs) {}
+    Knight(const Knight& _rhs);
     /** \brief
      *
      * \return std::unique_ptr<Piece>
      *
      */
-    std::unique_ptr<Piece> clone() const
-    {
-        return std::unique_ptr<Piece>(new Knight(*this));
-    }
+    std::unique_ptr<Piece> clone() const override;
     /** \brief
      *
      * \return virtual
@@ -55,21 +52,21 @@ public:
      * \return bool
      *
      */
-    bool moveEnabled(int newPos);
+    bool moveEnabled(const int newPos)const override;
     /** \brief
      *
      * \param newPos int
      * \return bool
      *
      */
-    bool captureKing(int newPos);
+    bool captureKing(const int newPos)const override;
     /** \brief
      *
      * \param newPos int
      * \return vector<int>
      *
      */
-    vector<int> getStepsBetween(int newPos) ;
+    vector<int> getStepsBetween(const int ) const override;
 protected:
 
 private:

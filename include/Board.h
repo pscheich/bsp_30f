@@ -48,7 +48,7 @@ public:
      * \return bool
      *
      */
-    bool move(int const &  posStart, int const & posEnd, bool const&  black);
+    bool move(const int  posStart, const int posEnd, const bool black);
 
     /** \brief
      *
@@ -77,7 +77,7 @@ public:
      * \return int const&
      *
      */
-    int const & getWinner() const;
+    int getWinner() const;
 
 protected:
 
@@ -86,70 +86,70 @@ private:
     /** \brief
      *
      * \param figure std::unique_ptr<Piece>&
-     * \param posEnd const int&
+     * \param posEnd int
      * \return bool
      *
      */
-    bool CheckFreeWay(std::unique_ptr<Piece>& figure, const int& posEnd);
+    bool CheckFreeWay(std::unique_ptr<Piece>& figure, const int posEnd);
     /** \brief
      *
      * \param figure std::vector<std::unique_ptr<Piece>>::iterator&
-     * \param black const bool&
-     * \param ret bool&
-     * \param posStart const int&
-     * \param posEnd const int&
+     * \param black bool
+     * \param ret bool
+     * \param posStart int
+     * \param posEnd int
      * \return void
      *
      */
-    void rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool& black, bool & ret, const int & posStart, const int & posEnd);
+    void rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool black, bool& ret, const int posStart, const int posEnd);
     /** \brief
      *
      * \param figure std::vector<std::unique_ptr<Piece>>::iterator&
-     * \param black const bool&
-     * \param ret bool&
-     * \param posStart const int&
-     * \param posEnd const int&
+     * \param black bool
+     * \param ret bool
+     * \param posStart int
+     * \param posEnd int
      * \return void
      *
      */
-    void enPassant(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool& black, bool & ret, const int & posStart, const int & posEnd);
+    void enPassant(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool black, bool& ret, const int posStart, const int posEnd);
     /** \brief
      *
      * \param figure std::vector<std::unique_ptr<Piece>>::iterator&
-     * \param black const bool&
+     * \param black bool
      * \return void
      *
      */
-    void pawnPromotion(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool & black);
+    void pawnPromotion(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool black);
     /** \brief
      *
-     * \param black const bool&
+     * \param black bool
      * \return bool
      *
      */
-    bool checkIfMovesPossible(const bool& black) ;
+    bool checkIfMovesPossible(const bool black)  ;
     /** \brief
      *
-     * \param black const bool&
+     * \param black bool
      * \param fields const vector<int>&
      * \return bool
      *
      */
     /** \brief
      *
-     * \param black const bool&
+     * \param black bool
      * \param fields const vector<int>&
      * \return bool
      *
      */
-    bool kingIsSafe(const bool & black, const vector<int>& fields);
+    bool kingIsSafe(const bool black, const vector<int>& fields) ;
     /** \brief
      *
      * \param pos vector<int> const&
      * \return bool
      *
      */
-    bool checkIfFree(vector<int> const & pos);
+    bool checkIfFree(vector<int> const & pos) ;
     /** \brief
      *
      * \param posEnd int const&
@@ -157,7 +157,7 @@ private:
      * \return bool
      *
      */
-    bool checkIfOwnPiece( int const & posEnd,bool const & black);
+    bool checkIfOwnPiece( int posEnd,const bool black) ;
 
     std::vector<std::unique_ptr<Piece>> _black;
     std::vector<std::unique_ptr<Piece>> _white;

@@ -48,7 +48,7 @@ std::vector<std::unique_ptr<Piece>> const & Board::getWhite() const
     return _white;
 }
 
-int const & Board::getWinner() const
+int Board::getWinner() const
 {
     return _winner;
 }
@@ -120,6 +120,10 @@ void Board::initTest(bool unicode)
     _black.emplace_back(std::move(P2));
     std::unique_ptr<Pawn> P3 (new Pawn(6*8+1, true,_unicode));
     _black.emplace_back(std::move(P3));
+    std::unique_ptr<Pawn> P4 (new Pawn(6*8+3, true,_unicode));
+    _black.emplace_back(std::move(P4));
+    std::unique_ptr<Pawn> P5 (new Pawn(1*8+7, true,_unicode));
+    _black.emplace_back(std::move(P5));
 
     std::unique_ptr<Rock> r1 (new Rock(0*8+0, false,_unicode));
     _white.emplace_back(std::move(r1));
@@ -139,10 +143,8 @@ void Board::initTest(bool unicode)
     _white.emplace_back(std::move(k));
     std::unique_ptr<Pawn> p1 (new Pawn(1*8+0, false,_unicode));
     _white.emplace_back(std::move(p1));
-    std::unique_ptr<Pawn> p2 (new Pawn(6*8+3, true,_unicode));
-    _black.emplace_back(std::move(p2));
-    std::unique_ptr<Pawn> p3 (new Pawn(1*8+7, true,_unicode));
-    _black.emplace_back(std::move(p3));
+    std::unique_ptr<Pawn> p4 (new Pawn(6*8+2, false,_unicode));
+    _white.emplace_back(std::move(p4));
 }
 
 void Board::init(bool unicode)
@@ -198,7 +200,7 @@ void Board::init(bool unicode)
     _white.emplace_back(std::move(k));
 
 }
-bool Board::CheckFreeWay(std::unique_ptr<Piece>& figure, const int& posEnd)  //check ob weg frei
+bool Board::CheckFreeWay(std::unique_ptr<Piece>& figure, const int posEnd)  //check ob weg frei
 {
     bool ret=true;
     const bool black = figure->getBlack();
@@ -228,7 +230,7 @@ bool Board::CheckFreeWay(std::unique_ptr<Piece>& figure, const int& posEnd)  //c
 
     return ret;
 }
-bool Board::checkIfMovesPossible(const bool& black)
+bool Board::checkIfMovesPossible(const bool black)
 {
     bool ret = false;
     auto &figurenSpieler = (black?_black:_white);
@@ -272,7 +274,7 @@ bool Board::checkIfFree(vector<int> const & pos)
     }
     return ret;
 }
-bool Board::checkIfOwnPiece( int const & posEnd,bool const & black)
+bool Board::checkIfOwnPiece( int posEnd,const bool black)
 {
     bool ret=true;
     auto  figure = std::find_if((black?_black:_white).begin(),(black?_black:_white).end(), [&](std::unique_ptr<Piece> & piece)
@@ -287,7 +289,7 @@ bool Board::checkIfOwnPiece( int const & posEnd,bool const & black)
     return ret;
 }
 
-bool Board::move(int const &  posStart, int const & posEnd,bool const & black)
+bool Board::move(const int  posStart, const int posEnd,const bool black)
 {
     bool ret=false;
     _remiscounter50++;  //mindestens 50 Zuge lang weder eine Figur geschlagen noch ein Bauer gezogen wurde.
@@ -367,7 +369,7 @@ bool Board::move(int const &  posStart, int const & posEnd,bool const & black)
                                 _positionsBlack.clear();//Die können hier geleert werden, da eine figur geshclagen wurde, und die alten situatuionen nicht mehr aufztreten können
                             }
                         }
-                        if(dynamic_cast<Pawn *>(figure->get()) != nullptr) //en passant
+                        if(dynamic_cast<Pawn *>(figure->get()) != nullptr)
                         {
                             _positionsWhite.clear();
                             _positionsBlack.clear();//Die können hier geleert werden, da einerin bauer gezogen wurde, und die alten situatuionen nicht mehr aufztreten können
@@ -392,7 +394,6 @@ bool Board::move(int const &  posStart, int const & posEnd,bool const & black)
                     else
                     {
                         (*figure)->setPosition(posStart); //Der König würde nach dem Zug im Schach stehen, die zuziehende FIgur wird zurückgesetzt
-                        //   cout << (*canCaptureKing)->getSymbol();
                     }
                 }
                 else
@@ -405,6 +406,28 @@ bool Board::move(int const &  posStart, int const & posEnd,bool const & black)
                     if(!ret&&_lastwasdouble>-1)  //Implementieren Sie die en-passant-Regel.
                     {
                         enPassant(figure, black, ret,posStart,posEnd);
+                    }
+                    //Bauer schlägt schräg
+                    if(dynamic_cast<Pawn *>(figure->get()) != nullptr)
+                    {
+                        if((*figure)->moveEnabled4Capture(posEnd))
+                        {
+                            (*figure)->setPosition(posEnd); //der unmoves bool wird jetzt geändert, da der zug ok ist
+                            auto  figureGeschlagen = std::find_if( figurenGegner.begin(), figurenGegner.end(), [&](std::unique_ptr<Piece> & piece)  //Gegner Figur wird entfernt
+                            {
+                                return piece->getPosition() == posEnd;
+                            });
+
+                            if(figureGeschlagen != figurenGegner.end())
+                            {
+                                ret=true;
+                                figurenGegner.erase(figureGeschlagen);
+                                _remiscounter50=0;  // Figur geschlagen, Zähler nullen
+                                _positionsWhite.clear();
+                                _positionsBlack.clear();//Die können hier geleert werden, da eine figur geshclagen wurde, und die alten situatuionen nicht mehr aufztreten können
+                                pawnPromotion(figure,black);
+                            }
+                        }
                     }
                 }
             }
@@ -429,7 +452,7 @@ bool Board::move(int const &  posStart, int const & posEnd,bool const & black)
     }
     return ret;
 }
-void Board::enPassant(std::vector<std::unique_ptr<Piece>>::iterator & figure, const bool& black, bool & ret, const int & posStart, const int & posEnd)
+void Board::enPassant(std::vector<std::unique_ptr<Piece>>::iterator & figure, const bool black, bool& ret, const int posStart, const int posEnd)
 {
     auto &figurenGegner = (black?_white:_black);
     if((std::abs(posStart/8-posEnd/8) == 1) && (std::abs(posStart%8-posEnd%8) == 1))
@@ -451,7 +474,7 @@ void Board::enPassant(std::vector<std::unique_ptr<Piece>>::iterator & figure, co
         }
     }
 }
-void Board::rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure, const bool& black, bool & ret, const int & posStart, const int & posEnd)
+void Board::rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure, const bool black, bool& ret, const int posStart, const int posEnd)
 {
     auto &figurenSpieler = (black?_black:_white) ;
     if(dynamic_cast<King *>(figure->get()) != nullptr)
@@ -564,11 +587,10 @@ void Board::rochade(std::vector<std::unique_ptr<Piece>>::iterator & figure, cons
     }
 }
 
-bool Board::kingIsSafe(const bool & black, const vector<int>& fields)
+bool Board::kingIsSafe(const bool black, const vector<int>& fields)
 {
     bool ret = true;
     auto &figurenGegner = (black?_white:_black);
-    string footemp;
     auto  canCaptureKing = std::find_if( figurenGegner.begin(), figurenGegner.end(), [&](std::unique_ptr<Piece> & piece)
     {
         bool retLambda = false;
@@ -579,8 +601,6 @@ bool Board::kingIsSafe(const bool & black, const vector<int>& fields)
             {
                 if (CheckFreeWay((piece),fieldConst))
                 {
-                    string fo=piece->getSymbol();
-                    footemp =  piece->getSymbol();
                     retLambda = true;
                 }
             }
@@ -594,7 +614,7 @@ bool Board::kingIsSafe(const bool & black, const vector<int>& fields)
     return ret;
 }
 
-void Board::pawnPromotion(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool & black)
+void Board::pawnPromotion(std::vector<std::unique_ptr<Piece>>::iterator & figure,const bool black)
 {
     if((*figure)->promotionPossible())
     {

@@ -5,19 +5,24 @@ Rock::Rock()
 {
     //ctor
 }
-Rock::Rock(int pos, bool black):Piece(pos,black? "R" : "r",black)
+Rock::Rock(const int pos, const bool black):Piece(pos,black? "R" : "r",black)
 {
     //ctor
 }
-Rock::Rock(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265C" : "\u2656":black? "R" : "r",black)
+Rock::Rock(const int pos, const bool black,const bool unicode):Piece(pos,unicode?black? "\u265C" : "\u2656":black? "R" : "r",black)
 {
     //ctor
 }
+Rock::Rock(const Rock& _rhs) : Piece(_rhs) {}
 Rock::~Rock()
 {
     //dtor
 }
-bool Rock::moveEnabled(int newPos)
+std::unique_ptr<Piece> Rock::clone() const
+{
+    return std::unique_ptr<Piece>(new Rock(*this));
+}
+bool Rock::moveEnabled(const int newPos) const
 {
     bool ret= true;
     if(!checkInField(newPos))
@@ -30,7 +35,7 @@ bool Rock::moveEnabled(int newPos)
     }
     return ret;
 }
-bool Rock::captureKing(int newPos)
+bool Rock::captureKing(const int newPos) const
 {
     bool ret= true;
     if(!checkInField(newPos))
@@ -43,7 +48,7 @@ bool Rock::captureKing(int newPos)
     }
     return ret;
 }
-vector<int> Rock::getStepsBetween(int newPos)
+vector<int> Rock::getStepsBetween(const int newPos) const
 {
     vector<int> ret;
     ret = {-1};

@@ -23,7 +23,7 @@ public:
      * \param black bool
      *
      */
-    Piece(int pos, string sym,bool black);
+    Piece(const int pos, const string sym,const bool black);
     /** \brief
      *
      * \param x int
@@ -32,13 +32,13 @@ public:
      * \param black bool
      *
      */
-    Piece(int x,int y, string sym,bool black);
+    Piece(const int x,const int y,const  string sym,const bool black);
     /** \brief
      *
      * \param pos int
      *
      */
-    Piece(int pos);
+    Piece(const int pos);
     /** \brief
      *
      * \return virtual std::unique_ptr<Piece>
@@ -58,14 +58,21 @@ public:
      * \return virtual  bool
      *
      */
-    virtual  bool moveEnabled(int newPos)=0;
+    virtual  bool moveEnabled(const int newPos)const =0 ;
     /** \brief
      *
      * \param newPos int
      * \return virtual  bool
      *
      */
-    virtual  bool captureKing(int newPos)=0;
+    virtual  bool moveEnabled4Capture(const int newPos)  const;
+    /** \brief
+     *
+     * \param newPos int
+     * \return virtual  bool
+     *
+     */
+    virtual  bool captureKing(const int newPos) const =0;
     /** \brief
      *
      * \return virtual  bool
@@ -77,7 +84,7 @@ public:
      * \return int
      *
      */
-    int getPosition();
+    int getPosition() const;
     /** \brief
      *
      * \return bool
@@ -90,14 +97,14 @@ public:
      * \return void
      *
      */
-    void setPosition(int newPos);
-        /** \brief
-     *
-     * \param newPos int
-     * \return void
-     *
-     */
-    void setPosition4Test(int newPos);
+    void setPosition(const int newPos);
+    /** \brief
+    *
+    * \param newPos int
+    * \return void
+    *
+    */
+    void setPosition4Test(const int newPos);
     /** \brief
      *
      * \return bool
@@ -125,7 +132,7 @@ public:
      * \return virtual vector<int>
      *
      */
-    virtual vector<int> getStepsBetween(int newPos) =0;
+    virtual vector<int> getStepsBetween(const int newPos) const =0 ;
 
 
     /** \brief
@@ -143,7 +150,7 @@ protected:
      * \return bool
      *
      */
-    bool checkInField(int newPos);
+    bool checkInField(const int newPos) const;
     int _position;
     string _symbol;
     bool _black;

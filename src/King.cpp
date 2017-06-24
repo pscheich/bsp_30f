@@ -5,19 +5,23 @@ King::King()
 {
     //ctor
 }
-King::King(int pos, bool black):Piece(pos,black? "K" : "k",black)
+King::King(const int pos, const bool black):Piece(pos,black? "K" : "k",black)
 {
 }
-King::King(int pos, bool black,bool unicode):Piece(pos,unicode?black? "\u265A" : "\u2654":black? "K" : "k",black)
+King::King(const int pos, const bool black,const bool unicode):Piece(pos,unicode?black? "\u265A" : "\u2654":black? "K" : "k",black)
 {
     //ctor
 }
+King::King(const King& _rhs) : Piece(_rhs) {}
 King::~King()
 {
     //dtor
 }
-
-bool King::moveEnabled(int newPos)
+std::unique_ptr<Piece> King::clone() const
+{
+    return std::unique_ptr<Piece>(new King(*this));
+}
+bool King::moveEnabled(const int newPos) const
 {
     bool ret= false;
     if(checkInField(newPos))
@@ -31,7 +35,7 @@ bool King::moveEnabled(int newPos)
     }
     return ret;
 }
-bool King::captureKing(int newPos)
+bool King::captureKing(const int newPos) const
 {
     bool ret= false;
     if(checkInField(newPos))
@@ -45,9 +49,9 @@ bool King::captureKing(int newPos)
     }
     return ret;
 }
-vector<int> King::getStepsBetween(int newPos)
+vector<int> King::getStepsBetween(const int ) const
 {
-    newPos++; //damit warnung verschwindet
+ //   newPos++; //damit warnung verschwindet
     vector<int> ret = {-1};
     return ret;
 }
