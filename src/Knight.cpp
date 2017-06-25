@@ -1,3 +1,8 @@
+/**
+ * Knight Source
+ * @author Patrick Scheich
+ */
+
 #include "Knight.h"
 #include <cmath>
 using namespace std;

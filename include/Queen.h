@@ -1,3 +1,8 @@
+/**
+ * Queen Header
+ * @author Patrick Scheich
+ */
+
 #ifndef QUEEN_H
 #define QUEEN_H
 #include "Piece.h"

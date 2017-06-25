@@ -1,3 +1,8 @@
+/**
+ * Bishop Source
+ * @author Patrick Scheich
+ */
+
 #include "Bishop.h"
 #include <cmath>
 using namespace std;

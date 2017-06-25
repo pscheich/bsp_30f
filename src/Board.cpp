@@ -1,3 +1,8 @@
+/**
+ * Board Source
+ * @author Patrick Scheich
+ */
+
 #include "Board.h"
 #include "King.h"
 #include "Queen.h"

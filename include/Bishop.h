@@ -1,3 +1,8 @@
+/**
+ * Bishop Header
+ * @author Patrick Scheich
+ */
+
 #ifndef BISHOP_H
 #define BISHOP_H
 #include "Piece.h"

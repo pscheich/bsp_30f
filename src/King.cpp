@@ -1,3 +1,8 @@
+/**
+ * King Source
+ * @author Patrick Scheich
+ */
+
 #include "King.h"
 #include <cmath>
 using namespace std;

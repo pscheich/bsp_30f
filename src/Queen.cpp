@@ -1,3 +1,8 @@
+/**
+ * Queen Source
+ * @author Patrick Scheich
+ */
+
 #include "Queen.h"
 #include <cmath>
 using namespace std;

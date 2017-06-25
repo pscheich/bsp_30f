@@ -1,3 +1,8 @@
+/**
+ * Piece Source
+ * @author Patrick Scheich
+ */
+
 #include "Piece.h"
 #include <vector>
 #include <array>

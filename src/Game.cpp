@@ -1,3 +1,8 @@
+/**
+ * Game Source
+ * @author Patrick Scheich
+ */
+
 #include "Game.h"
 #include <string>
 #include <iostream>

@@ -1,3 +1,8 @@
+/**
+ * Pawn Header
+ * @author Patrick Scheich
+ */
+
 #ifndef PAWN_H
 #define PAWN_H
 

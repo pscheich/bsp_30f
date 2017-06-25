@@ -1,3 +1,8 @@
+/**
+ * Rock Header
+ * @author Patrick Scheich
+ */
+
 #ifndef ROCK_H
 #define ROCK_H
 #include "Piece.h"

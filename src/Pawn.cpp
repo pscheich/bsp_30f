@@ -1,3 +1,8 @@
+/**
+ * Pawn Source
+ * @author Patrick Scheich
+ */
+
 #include "Pawn.h"
 #include <cmath>
 using namespace std;

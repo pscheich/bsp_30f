@@ -1,3 +1,8 @@
+/**
+ * Rock Source
+ * @author Patrick Scheich
+ */
+
 #include "Rock.h"
 #include <cmath>
 using namespace std;

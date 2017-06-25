@@ -1,3 +1,8 @@
+/**
+ * King Header
+ * @author Patrick Scheich
+ */
+
 #ifndef KING_H
 #define KING_H
 

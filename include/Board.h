@@ -1,3 +1,8 @@
+/**
+ * Board Header
+ * @author Patrick Scheich
+ */
+
 #ifndef BOARD_H
 #define BOARD_H
 #include "Piece.h"
